@@ -14,23 +14,19 @@ import {
   useToast,
   InputRightElement
 } from '@chakra-ui/react'
+
 import { EmailIcon, LockIcon } from '@chakra-ui/icons';
+import SchoolIcon from '@mui/icons-material/School';
 import { AiOutlineUser } from 'react-icons/ai';
-import {auth} from "../Config/firebase-config";
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+
+import {auth, db} from "../Config/firebase-config";
+import {createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import {doc, setDoc} from "firebase/firestore";
 
 export default function RegistrationForm() {
+
   const [isEmailUsed, setIsEmailUsed] = useState(false);
   const toast = useToast();
-  const [show, setShow] = useState(false)
-  const {
-    handleSubmit,
-    register,
-    formState: { errors, isSubmitting },
-  } = useForm()
-
-  const handleClick = () => setShow(!show)
-
   useEffect(() => {
     if (isEmailUsed) {
       toast({
@@ -41,11 +37,41 @@ export default function RegistrationForm() {
       });
     }
   }, [isEmailUsed, toast]);
+  
+  const [show, setShow] = useState(false)
+  const handleClick = () => setShow(!show)
+
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+  }, []);
+
 
   const onSubmit = async(values) => {
     try{
       await createUserWithEmailAndPassword(auth, values.email, values.password);
     console.log("Success");
+    if (isLoggedIn){
+      console.log("logged in");
+    }
+    const userId = auth?.currentUser?.uid;
+    console.log(userId);
+    try {
+      await setDoc(doc(db, "userData", userId), {
+        name: values.name,
+        university: values.university,
+        answers: {}
+      });
+    } catch (e) {
+      console.error("Error adding document: ", e.code);
+    }
     }catch(err){
       if (err.code === "auth/email-already-in-use"){
         setIsEmailUsed(true);
@@ -54,6 +80,12 @@ export default function RegistrationForm() {
       console.log(err.code);
     }
   }
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting },
+  } = useForm()
 
   return (
     <Box  >
@@ -74,6 +106,20 @@ export default function RegistrationForm() {
             required: 'This is required',
             minLength: { value: 4, message: 'Minimum length should be 4' },
           })}
+          autoComplete='on'
+        />
+        </InputGroup>
+        <InputGroup>
+        <InputLeftElement pointerEvents='none'>
+        <SchoolIcon />
+    </InputLeftElement>
+        <Input
+          id='university'
+          placeholder='University'
+          {...register('university', {
+            required: 'This is required',
+            minLength: { value: 4, message: 'Minimum length should be 4' },
+          })}
         />
         </InputGroup>
         <InputGroup>
@@ -81,12 +127,13 @@ export default function RegistrationForm() {
       <EmailIcon color='#01033c' />
     </InputLeftElement>
         <Input
-          id='Email'
+          id='email'
           placeholder='Email address'
           {...register('email', {
             required: 'This is required',
             minLength: { value: 4, message: 'Minimum length should be 4' },
           })}
+          autoComplete='on'
         />
         </InputGroup>
         <InputGroup>
