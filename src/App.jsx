@@ -1,32 +1,37 @@
-import { useState } from 'react'
-import RegistrationForm from './Components/RegistrationForm'
-import {Modal,
+import React, { useState } from 'react';
+import RegistrationForm from './Components/RegistrationForm';
+import Navbar from './Components/Navbar';
+import {
+  Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
   ModalCloseButton,
   ModalBody,
-  ModalFooter,
   useDisclosure,
-Button} from '@chakra-ui/react';
+  Button,
+} from '@chakra-ui/react';
 
 function App() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen: isRegistrationOpen, onOpen: onRegistrationOpen, onClose: onRegistrationClose } = useDisclosure();
+
   return (
     <>
-      <Button h="100vh" w="100vw" onClick={onOpen}>Open Modal</Button>
+    <Navbar/>
+      <Button h="20vh" w="50vw" onClick={onRegistrationOpen}>
+        Registration
+      </Button>
 
-      <Modal  size={{base:"sm", md:"lg"}} isOpen={isOpen} onClose={onClose} isCentered>
+      <Modal size={{ base: 'sm', md: 'lg' }} isOpen={isRegistrationOpen} onClose={onRegistrationClose} isCentered>
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
           <ModalBody>
-           <RegistrationForm/>
+            <RegistrationForm />
           </ModalBody>
         </ModalContent>
       </Modal>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
