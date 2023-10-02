@@ -22,6 +22,7 @@ import {signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase
 
 export default function LoginForm() {
 
+  //Check if the user email is verified
   const [isNotVerified, setIsNotVerified] = useState(false);
   const toast = useToast();
   useEffect(() => {
@@ -35,10 +36,11 @@ export default function LoginForm() {
     }
   }, [isNotVerified, toast]);
   
+  //Show and Hide typed passwords
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
 
-
+  //Checking whether the user is logged in
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -50,7 +52,7 @@ export default function LoginForm() {
     });
   }, []);
 
-
+  //Submitting the login form
   const onSubmit = async(values) => {
     try{
       await signInWithEmailAndPassword(auth, values.email, values.password);
@@ -75,6 +77,7 @@ export default function LoginForm() {
     }
   }
 
+  //react hook form controls
   const {
     handleSubmit,
     register,

@@ -25,6 +25,7 @@ import {doc, setDoc} from "firebase/firestore";
 
 export default function RegistrationForm() {
 
+  //Informing the user if Already have a account and Verification Email Sent 
   const [isEmailUsed, setIsEmailUsed] = useState(false);
   const [isVerificationEmailSent, setIsVerificationEmailSent] = useState(false);
   const toast = useToast();
@@ -47,10 +48,11 @@ export default function RegistrationForm() {
     }
   }, [isEmailUsed,isVerificationEmailSent, toast]);
   
+  //Show and Hide typed passwords
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
 
-
+  //Checking whether the user is logged in
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -62,7 +64,7 @@ export default function RegistrationForm() {
     });
   }, []);
 
-
+  //Sumbitting the registration form
   const onSubmit = async(values) => {
     try{
       await createUserWithEmailAndPassword(auth, values.email, values.password);
@@ -95,6 +97,7 @@ export default function RegistrationForm() {
     }
   }
 
+  //React hook form form handling hooks
   const {
     handleSubmit,
     register,
