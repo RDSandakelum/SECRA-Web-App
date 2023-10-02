@@ -17,21 +17,23 @@ import {
 import { EmailIcon, LockIcon } from '@chakra-ui/icons';
 
 import {auth} from "../Config/firebase-config";
-import {signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import {signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
+
 
 export default function LoginForm() {
 
-//   const toast = useToast();
-//   useEffect(() => {
-//     if (isEmailUsed) {
-//       toast({
-//         title: 'Email is already in use.',
-//         status: 'error',
-//         duration: 2000, 
-//         isClosable: true,
-//       });
-//     }
-//   }, [isEmailUsed, toast]);
+  const [isNotVerified, setIsNotVerified] = useState(false);
+  const toast = useToast();
+  useEffect(() => {
+    if (isNotVerified) {
+      toast({
+        title: 'Email is not verified, Please visit your email and verify!',
+        status: 'error',
+        duration: 3000, 
+        isClosable: true,
+      });
+    }
+  }, [isNotVerified, toast]);
   
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
@@ -52,12 +54,22 @@ export default function LoginForm() {
   const onSubmit = async(values) => {
     try{
       await signInWithEmailAndPassword(auth, values.email, values.password);
-    console.log("Success");
+      if (!auth?.currentUser?.emailVerified){
+        signOut(auth);
+        if(!auth?.currentUser){
+          console.log("Sign out");
+        }
+        setIsNotVerified(true);
+      }else if(auth?.currentUser?.emailVerified){
+        setIsNotVerified(false);
+      }
     if (isLoggedIn){
       console.log("logged in");
-    }
-    const userId = auth?.currentUser?.uid;
+      const userId = auth?.currentUser?.uid;
     console.log(userId);
+    }else{
+      console.log("not logged in");
+    }
     }catch(err){
       console.log(err.code);
     }

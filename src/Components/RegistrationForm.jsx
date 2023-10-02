@@ -20,12 +20,13 @@ import SchoolIcon from '@mui/icons-material/School';
 import { AiOutlineUser } from 'react-icons/ai';
 
 import {auth, db} from "../Config/firebase-config";
-import {createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import {createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signOut } from 'firebase/auth';
 import {doc, setDoc} from "firebase/firestore";
 
 export default function RegistrationForm() {
 
   const [isEmailUsed, setIsEmailUsed] = useState(false);
+  const [isVerificationEmailSent, setIsVerificationEmailSent] = useState(false);
   const toast = useToast();
   useEffect(() => {
     if (isEmailUsed) {
@@ -35,8 +36,16 @@ export default function RegistrationForm() {
         duration: 2000, 
         isClosable: true,
       });
+    } 
+    if (isVerificationEmailSent) { 
+      toast({
+        title: 'Verification email sent successfully',
+        status: 'success',
+        duration: 3000, 
+        isClosable: true,
+      });
     }
-  }, [isEmailUsed, toast]);
+  }, [isEmailUsed,isVerificationEmailSent, toast]);
   
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
@@ -57,6 +66,11 @@ export default function RegistrationForm() {
   const onSubmit = async(values) => {
     try{
       await createUserWithEmailAndPassword(auth, values.email, values.password);
+      sendEmailVerification(auth.currentUser)
+  .then(async () => {
+    setIsVerificationEmailSent(true);
+    await signOut(auth);
+  });
     console.log("Success");
     if (isLoggedIn){
       console.log("logged in");
