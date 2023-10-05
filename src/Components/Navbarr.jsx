@@ -25,17 +25,17 @@ function Navbar() {
   const { isOpen: isRegistrationOpen, onOpen: onRegistrationOpen, onClose: onRegistrationClose } = useDisclosure();
 
   const transparentBoxStyles = {
-    backgroundColor: isOpen ? "#EFEFEE" : "rgba(239, 239, 238, 0.0)",
+    backgroundColor: isOpen ? "#EFEFEE" : "rgba(239,239,238,0.6)",
     zIndex: 999,
     color: "black",
     top: 0,
     left: 0,
-    position: "absolute",
+    position: "fixed",
     width: "100vw"
   };
 
   return (
-    <Box pt="5px" style={transparentBoxStyles} >
+    <Box py="5px" style={transparentBoxStyles} >
       <Flex
         maxW="1200px"
         mx="auto"
