@@ -4,9 +4,10 @@ import App from './App.jsx'
 import { ChakraProvider , extendTheme } from '@chakra-ui/react'
 
 const theme = extendTheme({
-  colors:{
-    main: "#01033c",
-  }
+  fonts: {
+    body: "Nunito, sans-serif",
+    heading: "Nunito, sans-serif", 
+  },
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(

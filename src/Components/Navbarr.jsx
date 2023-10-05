@@ -25,10 +25,9 @@ function Navbar() {
   const { isOpen: isRegistrationOpen, onOpen: onRegistrationOpen, onClose: onRegistrationClose } = useDisclosure();
 
   const transparentBoxStyles = {
-    backgroundColor: "rgba(239, 239, 238, 0.0)",
+    backgroundColor: isOpen ? "#EFEFEE" : "rgba(239, 239, 238, 0.0)",
     zIndex: 999,
     color: "black",
-    py: 3,
     top: 0,
     left: 0,
     position: "absolute",
@@ -36,7 +35,7 @@ function Navbar() {
   };
 
   return (
-    <Box style={transparentBoxStyles} >
+    <Box pt="5px" style={transparentBoxStyles} >
       <Flex
         maxW="1200px"
         mx="auto"
@@ -101,6 +100,9 @@ function Navbar() {
       {/* Mobile navigation menu */}
       {isOpen && (
         <Box
+          p="5px"
+        backgroundColor= "rgb(239,239,238)"
+          zIndex={2}
           display={{ base: 'block', md: 'none' }}
           mt={2}
           textAlign="center"
