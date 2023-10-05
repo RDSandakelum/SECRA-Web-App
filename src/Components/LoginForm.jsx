@@ -90,7 +90,7 @@ export default function LoginForm() {
       <FormControl isInvalid={errors.name}>
         <Stack spacing={4}>
           <Center>
-          <Heading >Login Form</Heading>
+          <Heading >Login</Heading>
           </Center>
         <InputGroup>
         <InputLeftElement pointerEvents='none'>
@@ -127,7 +127,7 @@ export default function LoginForm() {
       </FormControl>
       <Center>
       <Button  mt={4} _hover={{bg:null}} color='white' bgGradient= 'linear(to-b, #01033c 66.66%, #232484)' isLoading={isSubmitting} type='submit'>
-        Submit
+        Login
       </Button>
       </Center>
     </form>

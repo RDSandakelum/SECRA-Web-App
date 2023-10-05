@@ -27,6 +27,7 @@ export default function RegistrationForm() {
 
   //Informing the user if Already have a account and Verification Email Sent 
   const [isEmailUsed, setIsEmailUsed] = useState(false);
+  const [invalidEmail, setInvalidEmail] = useState(false);
   const [isVerificationEmailSent, setIsVerificationEmailSent] = useState(false);
   const toast = useToast();
   useEffect(() => {
@@ -37,6 +38,7 @@ export default function RegistrationForm() {
         duration: 2000, 
         isClosable: true,
       });
+      setIsEmailUsed(false);
     } 
     if (isVerificationEmailSent) { 
       toast({
@@ -45,8 +47,18 @@ export default function RegistrationForm() {
         duration: 3000, 
         isClosable: true,
       });
+      setIsVerificationEmailSent(false);
     }
-  }, [isEmailUsed,isVerificationEmailSent, toast]);
+    if (invalidEmail) { 
+      toast({
+        title: 'Invalid email address',
+        status: 'error',
+        duration: 3000, 
+        isClosable: true,
+      });
+      setInvalidEmail(false);
+    }
+  }, [isEmailUsed,isVerificationEmailSent,invalidEmail, toast]);
   
   //Show and Hide typed passwords
   const [show, setShow] = useState(false)
@@ -83,15 +95,21 @@ export default function RegistrationForm() {
       await setDoc(doc(db, "userData", userId), {
         name: values.name,
         university: values.university,
+        designation: values.designation,
+        country: values.country,
         answers: {}
       });
-    } catch (e) {
+     }catch (e) {
       console.error("Error adding document: ", e.code);
     }
     }catch(err){
       if (err.code === "auth/email-already-in-use"){
         setIsEmailUsed(true);
         console.log("Email already in use");
+      }
+      if (err.code === "auth/invalid-email"){
+        setInvalidEmail(true);
+        console.log("Invalid email");
       }
       console.log(err.code);
     }
@@ -110,7 +128,7 @@ export default function RegistrationForm() {
       <FormControl isInvalid={errors.name}>
         <Stack spacing={4}>
           <Center>
-          <Heading >Registration Form</Heading>
+          <Heading >Registration</Heading>
           </Center>
         <InputGroup>
         <InputLeftElement pointerEvents='none'>
@@ -121,7 +139,35 @@ export default function RegistrationForm() {
           placeholder='Name'
           {...register('name', {
             required: 'This is required',
-            minLength: { value: 4, message: 'Minimum length should be 4' },
+            minLength: { value: 2, message: 'Name is too short!!' },
+          })}
+          autoComplete='on'
+        />
+            </InputGroup>
+            <InputGroup>
+        <InputLeftElement pointerEvents='none'>
+      <AiOutlineUser color="#01033c" />
+    </InputLeftElement>
+        <Input
+          id='designation'
+          placeholder='Designation'
+          {...register('designation', {
+            required: 'This is required',
+            minLength: { value: 2, message: 'Designation too short!!' },
+          })}
+          autoComplete='on'
+        />
+            </InputGroup>
+            <InputGroup>
+        <InputLeftElement pointerEvents='none'>
+      <AiOutlineUser color="#01033c" />
+    </InputLeftElement>
+        <Input
+          id='country'
+          placeholder='Country'
+          {...register('country', {
+            required: 'This is required',
+            minLength: { value: 1, message: 'Country name too short!!' },
           })}
           autoComplete='on'
         />
@@ -135,7 +181,7 @@ export default function RegistrationForm() {
           placeholder='University'
           {...register('university', {
             required: 'This is required',
-            minLength: { value: 4, message: 'Minimum length should be 4' },
+            minLength: { value: 1, message: 'University name is too short!!' },
           })}
         />
         </InputGroup>
@@ -145,10 +191,9 @@ export default function RegistrationForm() {
     </InputLeftElement>
         <Input
           id='email'
-          placeholder='Email address'
+          placeholder='Official Email address'
           {...register('email', {
             required: 'This is required',
-            minLength: { value: 4, message: 'Minimum length should be 4' },
           })}
           autoComplete='on'
         />
@@ -179,7 +224,7 @@ export default function RegistrationForm() {
       </FormControl>
       <Center>
       <Button  mt={4} _hover={{bg:null}} color='white' bgGradient= 'linear(to-b, #01033c 66.66%, #232484)' isLoading={isSubmitting} type='submit'>
-        Submit
+        Register
       </Button>
       </Center>
     </form>
