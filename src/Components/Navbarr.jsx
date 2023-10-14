@@ -1,6 +1,6 @@
-import React from 'react';
-import RegistrationForm from './RegistrationForm';
-import LoginForm from './LoginForm';
+import React from "react";
+import RegistrationForm from "./RegistrationForm";
+import LoginForm from "./LoginForm";
 import {
   Box,
   Flex,
@@ -11,18 +11,24 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
   ModalCloseButton,
   ModalBody,
-  ModalFooter,
-} from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+} from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
-  const { isOpen: isLoginOpen, onOpen: onLoginOpen, onClose: onLoginClose } = useDisclosure();
-  const { isOpen: isRegistrationOpen, onOpen: onRegistrationOpen, onClose: onRegistrationClose } = useDisclosure();
+  const {
+    isOpen: isLoginOpen,
+    onOpen: onLoginOpen,
+    onClose: onLoginClose,
+  } = useDisclosure();
+  const {
+    isOpen: isRegistrationOpen,
+    onOpen: onRegistrationOpen,
+    onClose: onRegistrationClose,
+  } = useDisclosure();
 
   const transparentBoxStyles = {
     backgroundColor: isOpen ? "#EFEFEE" : "rgba(239,239,238,0.6)",
@@ -30,12 +36,11 @@ function Navbar() {
     color: "black",
     top: 0,
     left: 0,
-    position: "fixed",
-    width: "100vw"
+    width: "100vw",
   };
 
   return (
-    <Box py="5px" style={transparentBoxStyles} >
+    <Box py="5px" style={transparentBoxStyles}>
       <Flex
         maxW="1200px"
         mx="auto"
@@ -50,49 +55,63 @@ function Navbar() {
 
         {/* Hamburger menu for mobile */}
         <IconButton
-          display={{ base: 'block', md: 'none' }}
+          display={{ base: "block", md: "none" }}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           onClick={onToggle}
           aria-label="Toggle Navigation"
         />
 
         {/* Normal navbar for larger screens */}
-        <Flex
-          display={{ base: 'none', md: 'flex' }}
-          align="center"
-        >
-          <Box _hover={{ 
-        color: "#01033c",    
-        borderColor: "#01033c", 
-        borderWidth: "0px 0px 2px 0px", 
-        transform: "translateY(-3px)", 
-            transition: "transform 0.2s ease",
-            cursor: "pointer"
-          }} mx={4}>
-            <Text >Home</Text>
+        <Flex display={{ base: "none", md: "flex" }} align="center">
+          <Box
+            _hover={{
+              color: "#01033c",
+              borderColor: "#01033c",
+              borderWidth: "0px 0px 2px 0px",
+              transform: "translateY(-3px)",
+              transition: "transform 0.2s ease",
+              cursor: "pointer",
+            }}
+            mx={4}
+          >
+            <Text>Home</Text>
           </Box>
-          <Box _hover={{ 
-        color: "#01033c",    
-        borderColor: "#01033c", 
-        borderWidth: "0px 0px 2px 0px", 
-        transform: "translateY(-3px)", 
-            transition: "transform 0.2s ease",
-            cursor: "pointer"
-          }} mx={4}>
+          <Box
+            _hover={{
+              color: "#01033c",
+              borderColor: "#01033c",
+              borderWidth: "0px 0px 2px 0px",
+              transform: "translateY(-3px)",
+              transition: "transform 0.2s ease",
+              cursor: "pointer",
+            }}
+            mx={4}
+          >
             <Text>About</Text>
           </Box>
-          <Box onClick={onLoginOpen} _hover={{ 
-        color: "#01033c",    
-        borderColor: "#01033c", 
-        borderWidth: "0px 0px 2px 0px", 
-        transform: "translateY(-3px)", 
-            transition: "transform 0.2s ease",
-            cursor: "pointer"
-          }} mx={4}>
+          <Box
+            onClick={onLoginOpen}
+            _hover={{
+              color: "#01033c",
+              borderColor: "#01033c",
+              borderWidth: "0px 0px 2px 0px",
+              transform: "translateY(-3px)",
+              transition: "transform 0.2s ease",
+              cursor: "pointer",
+            }}
+            mx={4}
+          >
             <Text>Log In</Text>
           </Box>
           <Box mx={4}>
-            <Button color="white" bgGradient= 'linear(to-b, #01033c 66.66%, #232484)' _hover={{bg:null}} onClick={onRegistrationOpen}>Register</Button>
+            <Button
+              color="white"
+              bgGradient="linear(to-b, #01033c 66.66%, #232484)"
+              _hover={{ bg: null }}
+              onClick={onRegistrationOpen}
+            >
+              Register
+            </Button>
           </Box>
         </Flex>
       </Flex>
@@ -101,21 +120,41 @@ function Navbar() {
       {isOpen && (
         <Box
           p="5px"
-        backgroundColor= "rgb(239,239,238)"
+          backgroundColor="rgb(239,239,238)"
           zIndex={2}
-          display={{ base: 'block', md: 'none' }}
+          display={{ base: "block", md: "none" }}
           mt={2}
           textAlign="center"
         >
-          <Box borderTop='1px' borderColor='#01033c'><Text py={2}>Home</Text></Box>
-          <Box borderTop='1px' borderColor='#01033c'><Text py={2}>About</Text></Box>
-          <Box borderTop='1px' borderColor='#01033c'><Text onClick={onLoginOpen} py={2}>Log In</Text></Box>
-          <Box><Button onClick={onRegistrationOpen} color="white" bgGradient= 'linear(to-b, #01033c 66.66%, #232484)' py={2}>
-            Register
-          </Button></Box>
+          <Box borderTop="1px" borderColor="#01033c">
+            <Text py={2}>Home</Text>
+          </Box>
+          <Box borderTop="1px" borderColor="#01033c">
+            <Text py={2}>About</Text>
+          </Box>
+          <Box borderTop="1px" borderColor="#01033c">
+            <Text onClick={onLoginOpen} py={2}>
+              Log In
+            </Text>
+          </Box>
+          <Box>
+            <Button
+              onClick={onRegistrationOpen}
+              color="white"
+              bgGradient="linear(to-b, #01033c 66.66%, #232484)"
+              py={2}
+            >
+              Register
+            </Button>
+          </Box>
         </Box>
       )}
-      <Modal size={{ base: 'sm', md: 'lg' }} isOpen={isLoginOpen} onClose={onLoginClose} isCentered>
+      <Modal
+        size={{ base: "sm", md: "lg" }}
+        isOpen={isLoginOpen}
+        onClose={onLoginClose}
+        isCentered
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
@@ -125,7 +164,12 @@ function Navbar() {
         </ModalContent>
       </Modal>
 
-      <Modal size={{ base: 'sm', md: 'lg' }} isOpen={isRegistrationOpen} onClose={onRegistrationClose} isCentered>
+      <Modal
+        size={{ base: "sm", md: "lg" }}
+        isOpen={isRegistrationOpen}
+        onClose={onRegistrationClose}
+        isCentered
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />

@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import Navbar from "./Components/Navbarr";
-import MainComponent from "./Components/MainComponent";
-import About from "./Components/About";
-import Footer from "./Components/Footer";
+
+import { Routes, Route } from "react-router-dom";
+
+import HomePage from "./Components/HomePage";
 import QuestionsPage from "./Components/QuestionsPage";
+import ResultPage from "./Components/ResultPage";
+
 function App() {
   return (
-    <>
-      <QuestionsPage />
-      {/* <MainComponent />
-      <Navbar />
-      <About />
-      <Footer /> */}
-    </>
+    <Routes>
+      <Route index element={<HomePage />} />
+      <Route path="/survey" element={<QuestionsPage />} />
+      <Route path="/result" element={<ResultPage />} />
+    </Routes>
   );
 }
 

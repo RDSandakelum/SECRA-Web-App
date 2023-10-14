@@ -6,10 +6,12 @@ import Section from "./Section";
 
 export default function QuestionsPage() {
   return (
-    <Flex>
-      <QuestionsNav />
-      <Section section="Section 01" />
+    <>
+      <Flex direction={{ base: "column", md: "row" }}>
+        <QuestionsNav />
+        <Section section="Section 01" />
+      </Flex>
       <Footer />
-    </Flex>
+    </>
   );
 }

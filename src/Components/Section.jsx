@@ -4,8 +4,12 @@ import Question from "./Question";
 
 export default function Section(props) {
   return (
-    <Box w="90%">
+    <Box ml="1rem" w="90%">
       <Heading>{props.section}</Heading>
+      <Question />
+      <br />
+      <Question />
+      <br />
       <Question />
       <br />
       <Question />

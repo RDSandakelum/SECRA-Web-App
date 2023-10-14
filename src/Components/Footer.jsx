@@ -3,7 +3,6 @@ import { Text, Flex } from "@chakra-ui/react";
 import { AiOutlineCopyrightCircle } from "react-icons/ai";
 export default function Footer() {
   const footerStyles = {
-    position: "fixed",
     bottom: 0,
     width: "100%",
     backgroundColor: "#01033C",

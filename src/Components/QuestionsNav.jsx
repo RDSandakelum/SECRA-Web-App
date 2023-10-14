@@ -41,12 +41,13 @@ export default function QuestionsNav() {
       <IconButton
         m="5px"
         display={{ base: "block", md: "none" }}
-        icon={!isOpen && <HamburgerIcon />}
+        icon={!isOpen && <HamburgerIcon fontSize="1rem" />}
         onClick={onOpen}
         aria-label="Toggle Navigation"
+        w="5vw"
       />
 
-      <Flex py="5px" style={boxStyles}>
+      <Flex py="5px" style={boxStyles} display={{ base: "none", md: "flex" }}>
         <Flex
           display={{ base: "none", md: "flex" }}
           justify="space-between"
