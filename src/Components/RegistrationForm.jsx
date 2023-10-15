@@ -27,6 +27,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
+import { Navigate } from "react-router-dom";
 
 export default function RegistrationForm() {
   //Informing the user if Already have a account and Verification Email Sent
@@ -68,33 +69,15 @@ export default function RegistrationForm() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
-  //Checking whether the user is logged in
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
-      }
-    });
-  }, []);
-
   //Sumbitting the registration form
   const onSubmit = async (values) => {
     try {
       await createUserWithEmailAndPassword(auth, values.email, values.password);
       sendEmailVerification(auth.currentUser).then(async () => {
         setIsVerificationEmailSent(true);
-        await signOut(auth);
       });
-      console.log("Success");
-      if (isLoggedIn) {
-        console.log("logged in");
-      }
-      const userId = auth?.currentUser?.uid;
-      console.log(userId);
       try {
+        const userId = auth.currentUser.uid;
         await setDoc(doc(db, "userData", userId), {
           name: values.name,
           university: values.university,
@@ -102,6 +85,9 @@ export default function RegistrationForm() {
           country: values.country,
           answers: {},
         });
+        await signOut(auth);
+        setTimeout(2000);
+        window.location.reload();
       } catch (e) {
         console.error("Error adding document: ", e.code);
       }

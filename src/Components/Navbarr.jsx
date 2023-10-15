@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import RegistrationForm from "./RegistrationForm";
 import LoginForm from "./LoginForm";
+import { Link, Navigate } from "react-router-dom";
+import { auth } from "../Config/firebase-config";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 import {
   Box,
   Flex,
@@ -32,12 +35,57 @@ function Navbar() {
 
   const transparentBoxStyles = {
     backgroundColor: isOpen ? "#EFEFEE" : "rgba(239,239,238,0.6)",
+    position: "fixed",
     zIndex: 999,
     color: "black",
     top: 0,
     left: 0,
     width: "100vw",
   };
+
+  const [log, setLog] = useState();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setLog(
+          <Box
+            onClick={async () => {
+              await signOut(auth);
+              window.location.reload();
+            }}
+            _hover={{
+              color: "#01033c",
+              borderColor: "#01033c",
+              borderWidth: "0px 0px 2px 0px",
+              transform: "translateY(-3px)",
+              transition: "transform 0.2s ease",
+              cursor: "pointer",
+            }}
+            mx={4}
+          >
+            <Text>Log Out</Text>
+          </Box>
+        );
+      } else {
+        setLog(
+          <Box
+            onClick={onLoginOpen}
+            _hover={{
+              color: "#01033c",
+              borderColor: "#01033c",
+              borderWidth: "0px 0px 2px 0px",
+              transform: "translateY(-3px)",
+              transition: "transform 0.2s ease",
+              cursor: "pointer",
+            }}
+            mx={4}
+          >
+            <Text>Log In</Text>
+          </Box>
+        );
+      }
+    });
+  }, []);
 
   return (
     <Box py="5px" style={transparentBoxStyles}>
@@ -74,7 +122,9 @@ function Navbar() {
             }}
             mx={4}
           >
-            <Text>Home</Text>
+            <Link to="/">
+              <Text>Home</Text>
+            </Link>
           </Box>
           <Box
             _hover={{
@@ -89,20 +139,7 @@ function Navbar() {
           >
             <Text>About</Text>
           </Box>
-          <Box
-            onClick={onLoginOpen}
-            _hover={{
-              color: "#01033c",
-              borderColor: "#01033c",
-              borderWidth: "0px 0px 2px 0px",
-              transform: "translateY(-3px)",
-              transition: "transform 0.2s ease",
-              cursor: "pointer",
-            }}
-            mx={4}
-          >
-            <Text>Log In</Text>
-          </Box>
+          {log}
           <Box mx={4}>
             <Button
               color="white"
@@ -132,11 +169,7 @@ function Navbar() {
           <Box borderTop="1px" borderColor="#01033c">
             <Text py={2}>About</Text>
           </Box>
-          <Box borderTop="1px" borderColor="#01033c">
-            <Text onClick={onLoginOpen} py={2}>
-              Log In
-            </Text>
-          </Box>
+          {log}
           <Box>
             <Button
               onClick={onRegistrationOpen}

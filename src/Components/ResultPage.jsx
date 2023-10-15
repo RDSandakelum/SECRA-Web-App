@@ -9,7 +9,7 @@ export default function ResultPage() {
   return (
     <Box>
       <Navbarr />
-      <Box>
+      <Box mt="50px">
         <Center>
           <Heading mt="1rem" ml="1rem">
             UEC Compass Questionnaire - Responses

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Box,
   Flex,
@@ -13,19 +13,20 @@ import {
 } from "@chakra-ui/react";
 import { AiOutlineHome } from "react-icons/ai";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 export default function QuestionsNav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   const boxStyles = {
     backgroundColor: "#01033C",
     color: "white",
     top: 0,
     left: 0,
     paddingTop: "2rem",
-    // position: "fixed",
+    position: "sticky",
     height: "100vh",
     justifyContent: "center",
+    minWidth: "10vw",
   };
 
   const itemStyle = {
@@ -67,7 +68,9 @@ export default function QuestionsNav() {
             </Center>
           </Box>
           <Box _hover={itemStyle} mx={4}>
-            <Text>Section 1</Text>
+            <Link to="#01">
+              <Text>Section 1</Text>
+            </Link>
           </Box>
           <Box _hover={itemStyle} mx={4}>
             <Text>Section 2</Text>
