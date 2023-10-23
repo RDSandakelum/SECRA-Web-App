@@ -6,6 +6,7 @@ import HomePage from "./Components/HomePage";
 import QuestionsPage from "./Components/QuestionsPage";
 import ResultPage from "./Components/ResultPage";
 import NotFound from "./Components/NotFound";
+import PrevResponsesPage from "./Components/PrevResponsesPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/survey" element={<QuestionsPage />} />
       <Route path="/result" element={<ResultPage />} />
       <Route path="/*" element={<NotFound />} />
+      <Route path="/prev-results" element={<PrevResponsesPage />} />
     </Routes>
   );
 }
