@@ -18,7 +18,7 @@ const section_01 = [
     question: "Please elaborate.",
     dependOn: true,
     dependingQuestion: "01.01",
-    dependingAnswer: "Other",
+    dependingAnswer: ["Other"],
   },
   {
     questionID: "01.03",
@@ -41,7 +41,7 @@ const section_01 = [
     question: "Please elaborate.",
     dependOn: true,
     dependingQuestion: "01.03",
-    dependingAnswer: "Other",
+    dependingAnswer: ["Other"],
   },
   {
     questionID: "01.05",
@@ -63,14 +63,14 @@ const section_01 = [
     ],
     dependOn: true,
     dependingQuestion: "01.05",
-    dependingAnswer: "Yes, occasionally",
+    dependingAnswer: ["Yes, occasionally"],
   },
   {
     questionID: "01.07",
     question: "Please elaborate.",
     dependOn: true,
     dependingQuestion: "01.06",
-    dependingAnswer: "Other",
+    dependingAnswer: ["Other"],
   },
   {
     questionID: "01.08",
@@ -86,18 +86,18 @@ const section_01 = [
     question:
       "Is there additional funding for work-integrated learning at any higher administrative level for which the UoA can apply?",
     answers: ["Yes, regularly", "Yes, occasionally", "No", "I do not know"],
-    dependOn: true,
-    dependingQuestion: "01.03",
-    dependingAnswer: "Yes, regularly",
+    dependOn: false,
+    dependingQuestion: null,
+    dependingAnswer: null,
   },
   {
     questionID: "01.10",
     question:
       "Is work-integrated learning a separate budget line in the UoA's financial records and reports?",
     answers: ["Yes", "No", "I do not know"],
-    dependOn: true,
-    dependingQuestion: "01.04",
-    dependingAnswer: "Yes, for staff time",
+    dependOn: false,
+    dependingQuestion: null,
+    dependingAnswer: null,
   },
 ];
 
@@ -188,7 +188,7 @@ const section_02 = [
     question: "What other role(s) are involved?",
     dependOn: true,
     dependingQuestion: "01.07",
-    dependingAnswer: "Other",
+    dependingAnswer: ["Other"],
   },
   {
     questionID: "02.09",
@@ -209,7 +209,7 @@ const section_02 = [
     question: "Please indicate what context(s) the results are used in.",
     dependOn: true,
     dependingQuestion: "01.09",
-    dependingAnswer: "Other",
+    dependingAnswer: ["Other"],
   },
   {
     questionID: "02.11",
@@ -232,7 +232,7 @@ const section_02 = [
     question: "Please elaborate.",
     dependOn: true,
     dependingQuestion: "02.11",
-    dependingAnswer: "In other way",
+    dependingAnswer: ["In other way"],
   },
   {
     questionID: "02.13",
@@ -255,7 +255,7 @@ const section_02 = [
     question: "Please elaborate.",
     dependOn: true,
     dependingQuestion: "02.13",
-    dependingAnswer: "Other way",
+    dependingAnswer: ["Other way"],
   },
   {
     questionID: "02.15",
@@ -295,6 +295,13 @@ const section_03 = [
   },
   {
     questionID: "03.02",
+    question: "Please elaborate.",
+    dependOn: true,
+    dependingQuestion: "03.01",
+    dependingAnswer: ["Others"],
+  },
+  {
+    questionID: "03.03",
     question:
       "Are students encouraged to propose ideas for work-integrated learning activities?",
     answers: ["Yes, regularly", "Yes, occasionally", "No"],
@@ -303,7 +310,7 @@ const section_03 = [
     dependingAnswer: null,
   },
   {
-    questionID: "03.03",
+    questionID: "03.04",
     question:
       "Are teachers and staff encouraged to propose ideas for work-integrated learning activities?",
     answers: ["Yes, regularly", "Yes, occasionally", "No"],
@@ -312,7 +319,7 @@ const section_03 = [
     dependingAnswer: null,
   },
   {
-    questionID: "03.04",
+    questionID: "03.05",
     question:
       "How do you work strategically to develop work-integrated learning?",
     answers: [
@@ -326,7 +333,14 @@ const section_03 = [
     dependingAnswer: null,
   },
   {
-    questionID: "03.05",
+    questionID: "03.06",
+    question: "Please elaborate.",
+    dependOn: true,
+    dependingQuestion: "03.05",
+    dependingAnswer: ["In other ways"],
+  },
+  {
+    questionID: "03.07",
     question:
       "Are students generally encouraged to carry out extracurricular work-integrated learning activities?",
     answers: ["Yes", "No"],
@@ -335,7 +349,7 @@ const section_03 = [
     dependingAnswer: null,
   },
   {
-    questionID: "03.06",
+    questionID: "03.08",
     question:
       "Who ensures that the work-integrated learning activities at the UoA are up to date with the latest developments in the industry?",
     answers: ["Students", "Teachers/Staff", "UoA director", "Others"],
@@ -344,7 +358,14 @@ const section_03 = [
     dependingAnswer: null,
   },
   {
-    questionID: "03.07",
+    questionID: "03.09",
+    question: "Please elaborate.",
+    dependOn: true,
+    dependingQuestion: "03.08",
+    dependingAnswer: ["Others"],
+  },
+  {
+    questionID: "03.10",
     question:
       "How does the UoA ensure the relevance of work-integrated learning activities?",
     answers: [
@@ -362,6 +383,13 @@ const section_03 = [
     dependingQuestion: null,
     dependingAnswer: null,
   },
+  {
+    questionID: "03.11",
+    question: "Please elaborate.",
+    dependOn: true,
+    dependingQuestion: "03.10",
+    dependingAnswer: ["Other way"],
+  },
 ];
 
 const section_04 = [
@@ -376,6 +404,14 @@ const section_04 = [
   },
   {
     questionID: "04.02",
+    question: "Is there any interaction between the UoA and the career centre?",
+    answers: ["Yes, often", "Yes, occasionally", "No"],
+    dependOn: true,
+    dependingQuestion: "04.01",
+    dependingAnswer: ["Yes"],
+  },
+  {
+    questionID: "04.03",
     question: "Do you invite alums to work-integrated learning activities?",
     answers: [
       "Yes, as speakers, workshop facilitators etc.",
@@ -387,7 +423,7 @@ const section_04 = [
     dependingAnswer: null,
   },
   {
-    questionID: "04.03",
+    questionID: "04.04",
     question:
       "Do you connect work-integrated learning activities with ongoing research? (e.g., workshops with researchers and professionals participating.)",
     answers: ["Yes, often", "Yes, occasionally", "No"],
@@ -396,7 +432,7 @@ const section_04 = [
     dependingAnswer: null,
   },
   {
-    questionID: "04.04",
+    questionID: "04.05",
     question: "Is work-integrated learning described in the UoA’s syllabus?",
     answers: ["Yes, thoroughly described", "Yes, but only briefly", "No"],
     dependOn: false,
@@ -404,7 +440,7 @@ const section_04 = [
     dependingAnswer: null,
   },
   {
-    questionID: "04.05",
+    questionID: "04.06",
     question:
       "Does the UoA’s syllabus specify learning outcomes for work-integrated learning activities?",
     answers: ["Yes", "No"],
@@ -413,7 +449,36 @@ const section_04 = [
     dependingAnswer: null,
   },
   {
-    questionID: "04.06",
+    questionID: "04.07",
+    question: "Do the learning outcomes include any of the following?",
+    answers: [
+      "Deepening/broadening of knowledge related to the degree program",
+      "Applying critical thinking",
+      "Ethical perspectives/issues",
+      "Building self-confidence",
+      "Networking",
+      "Experience with workplaces and professionalism",
+      "Starting and running a business",
+    ],
+    dependOn: true,
+    dependingQuestion: "04.06",
+    dependingAnswer: ["Yes"],
+  },
+  {
+    questionID: "04.08",
+    question: "To what extent are the learning outcomes met?",
+    answers: [
+      "Completely",
+      "To a large extent",
+      "To some extent",
+      "Not at all",
+    ],
+    dependOn: true,
+    dependingQuestion: "04.06",
+    dependingAnswer: ["Yes"],
+  },
+  {
+    questionID: "04.09",
     question:
       "How many of the UoA’s work-integrated learning activities connect directly to the topic of specific courses, i.e., not generic?",
     answers: ["A majority ", "A minority", "Not at all"],
@@ -422,7 +487,7 @@ const section_04 = [
     dependingAnswer: null,
   },
   {
-    questionID: "04.07",
+    questionID: "04.10",
     question:
       "How many of the UoA’s work-integrated learning activities are compulsory?",
     answers: ["A majority ", "A minority", "None"],
@@ -431,7 +496,7 @@ const section_04 = [
     dependingAnswer: null,
   },
   {
-    questionID: "04.08",
+    questionID: "04.11",
     question:
       "How often do joint work-integrated learning activities occur with students in other educational programmes?",
     answers: [
@@ -474,6 +539,13 @@ const section_05 = [
   },
   {
     questionID: "05.03",
+    question: "Please elaborate.",
+    dependOn: true,
+    dependingQuestion: "05.02",
+    dependingAnswer: ["Other"],
+  },
+  {
+    questionID: "05.04",
     question:
       "How often do you estimate that students generally receive information about their future careers?",
     answers: ["1-2 times per semester", "1-3 times per month", "Every week"],
@@ -482,7 +554,7 @@ const section_05 = [
     dependingAnswer: null,
   },
   {
-    questionID: "05.04",
+    questionID: "05.05",
     question:
       "How often do work-integrated learning activities require the students to prepare something?",
     answers: ["Every time", "Often", "Rarely", "Never"],
@@ -491,7 +563,7 @@ const section_05 = [
     dependingAnswer: null,
   },
   {
-    questionID: "05.05",
+    questionID: "05.06",
     question:
       "Are the individual work-integrated learning activities evaluated?",
     answers: ["Yes, always", "Yes, sometimes", "No"],
@@ -499,11 +571,51 @@ const section_05 = [
     dependingQuestion: null,
     dependingAnswer: null,
   },
+  {
+    questionID: "05.07",
+    question: "Who is involved in the evaluations?",
+    answers: [
+      "The person/persons who held the activity (e.g., a guest lecturer)",
+      "The person/persons who organised the activity (e.g., a teacher)",
+      "The students",
+      "Other",
+    ],
+    dependOn: true,
+    dependingQuestion: "05.06",
+    dependingAnswer: ["Yes, always", "Yes, sometimes"],
+  },
+  {
+    questionID: "05.08",
+    question: "Please elaborate.",
+    dependOn: true,
+    dependingQuestion: "05.07",
+    dependingAnswer: ["Other"],
+  },
+  {
+    questionID: "05.09",
+    question: "What do the evaluations assess?",
+    answers: [
+      "The person/persons who held the activity (e.g., a guest lecturer)",
+      "The person/persons who organised the activity (e.g., a teacher)",
+      "The students",
+      "Other",
+    ],
+    dependOn: true,
+    dependingQuestion: "05.06",
+    dependingAnswer: ["Yes, always", "Yes, sometimes"],
+  },
+  {
+    questionID: "05.10",
+    question: "Please elaborate.",
+    dependOn: true,
+    dependingQuestion: "05.09",
+    dependingAnswer: ["Other"],
+  },
 ];
 
 const section_06 = [
   {
-    questionID: "06.1",
+    questionID: "06.01",
     question:
       "Is there a central office or function for work-integrated learning at the university?",
     answers: [
@@ -517,7 +629,19 @@ const section_06 = [
     dependingAnswer: null,
   },
   {
-    questionID: "06.2",
+    questionID: "06.02",
+    question: "Is the support you receive from the central office sufficient?",
+    answers: ["Yes", "No"],
+    dependOn: true,
+    dependingQuestion: "06.01",
+    dependingAnswer: [
+      "Yes, at the university/college level",
+      "Yes, at the faculty/school level",
+      "Yes, at the department level",
+    ],
+  },
+  {
+    questionID: "06.03",
     question:
       "Is work-integrated learning on the agenda in general department meetings?",
     answers: ["Yes, regularly", "Yes, occasionally", "No"],
@@ -526,7 +650,7 @@ const section_06 = [
     dependingAnswer: null,
   },
   {
-    questionID: "06.3",
+    questionID: "06.04",
     question:
       "Can you comfortably address questions about work-integrated learning in the relevant department meetings?",
     answers: [
@@ -539,7 +663,7 @@ const section_06 = [
     dependingAnswer: null,
   },
   {
-    questionID: "06.4",
+    questionID: "06.05",
     question:
       "Would you say the UoA’s faculty and staff are generally interested in work-integrated learning?",
     answers: [
@@ -553,7 +677,7 @@ const section_06 = [
     dependingAnswer: null,
   },
   {
-    questionID: "06.5",
+    questionID: "06.06",
     question:
       "Does your closest manager support your efforts in work-integrated learning?",
     answers: ["Yes, to a large extent", "Yes, to some extent", "No"],
@@ -562,7 +686,7 @@ const section_06 = [
     dependingAnswer: null,
   },
   {
-    questionID: "06.6",
+    questionID: "06.07",
     question:
       "Does the university have articulated objectives regarding work-integrated learning?",
     answers: [
@@ -577,7 +701,7 @@ const section_06 = [
     dependingAnswer: null,
   },
   {
-    questionID: "06.7",
+    questionID: "06.08",
     question:
       "Are there any earmarked funds allocated for work-integrated learning activities?",
     answers: [
@@ -592,7 +716,7 @@ const section_06 = [
     dependingAnswer: null,
   },
   {
-    questionID: "06.8",
+    questionID: "06.09",
     question:
       "Are there any instructions, training, or guidance available for how to work with work-integrated learning?",
     answers: [
@@ -607,7 +731,7 @@ const section_06 = [
     dependingAnswer: null,
   },
   {
-    questionID: "06.9",
+    questionID: "06.10",
     question:
       "Is there a general follow-up mechanism regarding work-integrated learning?",
     answers: [
@@ -624,7 +748,7 @@ const section_06 = [
 
 const section_07 = [
   {
-    questionID: "07.1",
+    questionID: "07.01",
     question:
       "At how many external events, such as conferences and trade fairs, is the UoA represented in a year?",
     answers: ["0", "1-2", "3-4", ">4"],
@@ -633,7 +757,7 @@ const section_07 = [
     dependingAnswer: null,
   },
   {
-    questionID: "07.2",
+    questionID: "07.02",
     question:
       "Is any UoA staff engaged in formal industry networks or interest organisations?",
     answers: ["Yes, in several", "Yes, in a few", "No", "I do not know"],
@@ -642,7 +766,7 @@ const section_07 = [
     dependingAnswer: null,
   },
   {
-    questionID: "07.3",
+    questionID: "07.03",
     question:
       "Does anyone in the UoA staff hold a formal role in any external bodies? (e.g. board position, project manager)?",
     answers: ["Yes, in several", "Yes, in a few", "No"],
@@ -651,7 +775,7 @@ const section_07 = [
     dependingAnswer: null,
   },
   {
-    questionID: "07.4",
+    questionID: "07.04",
     question:
       "Have you assigned anyone to monitor the latest developments in the relevant industries?",
     answers: [
@@ -666,7 +790,43 @@ const section_07 = [
     dependingAnswer: null,
   },
   {
-    questionID: "07.5",
+    questionID: "07.05",
+    question: "Please elaborate.",
+    dependOn: true,
+    dependingQuestion: "07.04",
+    dependingAnswer: ["Yes, someone else"],
+  },
+  {
+    questionID: "07.06",
+    question: "In what ways does the monitoring take place?",
+    answers: [
+      "General news coverage",
+      "Industry-specific news coverage (e.g. groups on the internet or industry magazines)",
+      "Participation in fairs/conferences",
+      "Staff actively participate in industry associations/networks",
+      "Personal industry contacts",
+      "Alumni contacts",
+      "Talking to corresponding program staff at other universities",
+      "In other ways",
+    ],
+    dependOn: true,
+    dependingQuestion: "07.04",
+    dependingAnswer: [
+      "Yes, students",
+      "Yes, teachers/staff",
+      "Yes, the UoA director",
+      "Yes, someone else",
+    ],
+  },
+  {
+    questionID: "07.07",
+    question: "Please elaborate.",
+    dependOn: true,
+    dependingQuestion: "07.06",
+    dependingAnswer: ["In other ways"],
+  },
+  {
+    questionID: "07.08",
     question:
       "Is work-integrated learning at the UoA described in marketing material?",
     answers: ["Yes", "No", "I do not know"],
@@ -675,7 +835,7 @@ const section_07 = [
     dependingAnswer: null,
   },
   {
-    questionID: "07.6",
+    questionID: "07.09",
     question:
       "Is work-integrated learning at the UoA described on the public website?",
     answers: ["Yes", "No", "I do not know"],
@@ -684,7 +844,7 @@ const section_07 = [
     dependingAnswer: null,
   },
   {
-    questionID: "07.7",
+    questionID: "07.10",
     question: "Is the UoA active on social media?",
     answers: [
       "Very active (often posts news and pictures, starts, and engages in discussions, answers questions etc.)",
@@ -697,7 +857,7 @@ const section_07 = [
     dependingAnswer: null,
   },
   {
-    questionID: "07.8",
+    questionID: "07.11",
     question:
       "How many formal news or press releases does the UoA publish in a semester?",
     answers: ["0-1", "1-2", "2-5", ">5"],

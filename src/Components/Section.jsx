@@ -3,25 +3,25 @@ import React from "react";
 import Question from "./Question";
 
 export default function Section(props) {
-  let qType = "Checkbox";
+  let aType = "Checkbox";
+
+  const getAsnwer = (answer, type, questionId) => {
+    props.sendData(answer, type, questionId);
+  };
+
   const createQuestion = (question) => {
     if (question.dependOn) {
       if (question?.answers) {
-        qType = "Checkbox";
+        aType = "Checkbox";
       } else {
-        qType = "Text";
+        aType = "Text";
       }
     } else {
-      qType = "Checkbox";
+      aType = "Checkbox";
     }
     return (
       <>
-        <Question
-          key={question.questionID}
-          question={question.question}
-          answers={question.answers}
-          qType={qType}
-        />
+        <Question onSubmit={getAsnwer} data={question} qType={aType} />
         <br />
       </>
     );
@@ -32,7 +32,7 @@ export default function Section(props) {
       <Center>
         <Heading ml="1rem">Section {props.section}</Heading>
       </Center>
-      {props.data.map((question) => createQuestion(question, qType))}
+      {props.data.map((question) => createQuestion(question, aType))}
     </Box>
   );
 }

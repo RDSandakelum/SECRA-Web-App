@@ -8,6 +8,10 @@ import ResultPage from "./Components/ResultPage";
 import NotFound from "./Components/NotFound";
 import PrevResponsesPage from "./Components/PrevResponsesPage";
 
+import { atom } from "jotai";
+
+export const answersAtom = atom({});
+
 function App() {
   return (
     <Routes>
