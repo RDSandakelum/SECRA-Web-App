@@ -3,29 +3,32 @@ import { Text, Flex, Box, Checkbox, CheckboxGroup } from "@chakra-ui/react";
 
 export default function Question(props) {
   const [showQuestion, setShowQuestion] = useState(true);
+  const [answersArray, setanswersArray] = useState([]);
+  const [typeText, settypeText] = useState(false);
 
   const [checkedAnswers, setCheckedAnswers] = useState([]);
   const [answer, setAnswer] = useState("");
-  console.log(answer);
-  let answersArray = [];
-  let typeText = false;
-
-  if (props.qType === "Text") {
-    typeText = true;
-  } else {
-    answersArray = props.data.answers;
-  }
 
   const handleCheckboxChange = (newCheckedAnswers) => {
     setCheckedAnswers(newCheckedAnswers);
     props.onSubmit(newCheckedAnswers, "Arr", props.data.questionID);
-    console.log(checkedAnswers);
+    console.log(newCheckedAnswers);
   };
 
   const setParaAns = (answerStr) => {
     setAnswer(answerStr);
+    console.log(answerStr);
     props.onSubmit(answerStr, "Str", props.data.questionID);
   };
+
+  useEffect(() => {
+    if (props.qType === "Text") {
+      settypeText(true);
+    } else {
+      setanswersArray(props.data.answers);
+    }
+    console.count("Qeqstion page");
+  }, []);
 
   const createAnswers = (data, index) => {
     return (
@@ -75,6 +78,7 @@ export default function Question(props) {
                 />
               </Box>
             ) : (
+              answersArray &&
               answersArray.map((answer, index) => (
                 <Box key={index} width={{ base: "100%", md: "30%" }}>
                   {createAnswers(answer, index)}

@@ -1,5 +1,5 @@
 import { Flex, Button, Center } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import QuestionsNav from "./QuestionsNav";
 import Footer from "./Footer";
 import Section from "./Section";
@@ -16,14 +16,14 @@ export default function QuestionsPage() {
   const [answers, setAnswers] = useState({});
 
   const getData = (answer, type, questionId) => {
-    console.log("answer received :", answer, questionId);
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
       [questionId]: answer,
     }));
+    console.count("q page");
+    console.log(answer, questionId);
   };
 
-  console.log(answers);
   return (
     <>
       <Flex direction={{ base: "column", md: "row" }}>
