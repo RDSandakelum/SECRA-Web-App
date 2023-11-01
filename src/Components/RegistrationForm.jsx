@@ -83,7 +83,6 @@ export default function RegistrationForm() {
           university: values.university,
           designation: values.designation,
           country: values.country,
-          answers: {},
         });
         await signOut(auth);
         setTimeout(2000);
