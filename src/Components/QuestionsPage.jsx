@@ -12,6 +12,8 @@ import {
   section_06,
   section_07,
 } from "../Data/Questions";
+import { auth, db } from "../Config/firebase-config";
+import { doc, updateDoc } from "firebase/firestore";
 import { useNavigate, useLocation } from "react-router-dom";
 export default function QuestionsPage() {
   const sections = [
@@ -23,6 +25,7 @@ export default function QuestionsPage() {
     "Section 6",
     "Section 7",
   ];
+
   // save in Firebase, button functions, calculate Scores, display in chart, retrieve
   const navigateTo = useNavigate();
 
@@ -33,7 +36,7 @@ export default function QuestionsPage() {
       ? location.state
       : [
           {
-            title: "Organisation",
+            title: "Section_1",
             questions: section_01.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -41,7 +44,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "Quality Assurance",
+            title: "Section_2",
             questions: section_02.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -49,7 +52,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "Development",
+            title: "Section_3",
             questions: section_03.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -57,7 +60,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "Integration",
+            title: "Section_4",
             questions: section_04.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -65,7 +68,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "Activities",
+            title: "Section_5",
             questions: section_05.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -73,7 +76,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "Institutional Support",
+            title: "Section_6",
             questions: section_06.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -81,7 +84,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "External Environment",
+            title: "Section_7",
             questions: section_07.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -90,6 +93,31 @@ export default function QuestionsPage() {
           },
         ]
   );
+
+  function getCurrentDateAndTime() {
+    const now = new Date();
+    const year = now.getFullYear().toString().slice(-2); // Get the last 2 digits of the year
+    const month = (now.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
+    const day = now.getDate().toString().padStart(2, "0");
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+
+    return `${year} ${month} ${day}-${hours} ${minutes}`;
+  }
+
+  const saveData = async (userAnswers) => {
+    const user = auth?.currentUser;
+    if (user) {
+      const userId = auth.currentUser.uid;
+      const formattedDate = getCurrentDateAndTime().toString();
+      const dataToSave = {
+        [formattedDate]: userAnswers,
+      };
+      console.log(dataToSave, userAnswers);
+      // await updateDoc(doc(db, "userAnswers", userId), dataToSave);
+      console.log("from Save Data");
+    }
+  };
 
   console.log(answers);
 
@@ -158,7 +186,7 @@ export default function QuestionsPage() {
       }
     });
     console.log(userAnswers);
-
+    saveData(userAnswers);
     navigateTo("/result", { state: userAnswers });
   };
 

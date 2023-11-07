@@ -84,6 +84,7 @@ export default function RegistrationForm() {
           designation: values.designation,
           country: values.country,
         });
+        await setDoc(doc(db, "userAnswers", userId), {});
         await signOut(auth);
         setTimeout(2000);
         window.location.reload();
