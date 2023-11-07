@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -10,8 +10,9 @@ import {
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
 import { Box } from "@chakra-ui/react";
+import { userProvidedData } from "../Data/Results";
 
-export default function Chart() {
+export default function Chart({ providedLabels, labelData }) {
   ChartJS.register(
     RadialLinearScale,
     PointElement,
@@ -22,19 +23,11 @@ export default function Chart() {
   );
 
   const data = {
-    labels: [
-      "Thing 1",
-      "Thing 2",
-      "Thing 3",
-      "Thing 4",
-      "Thing 5",
-      "Thing 6",
-      "Thing 7",
-    ],
+    labels: providedLabels,
     datasets: [
       {
-        label: "# of Votes",
-        data: [2, 9, 3, 5, 2, 3],
+        label: "Score",
+        data: labelData,
         backgroundColor: "rgba(1, 3, 60, 0.7)",
         borderColor: "rgba(1, 3, 60, 1)",
         borderWidth: 1,

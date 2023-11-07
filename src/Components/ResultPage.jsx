@@ -1,11 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbarr from "./Navbarr";
 import Chart from "./Chart";
 import { Box, Heading, Center, Button, Text, Flex } from "@chakra-ui/react";
 import Table from "./ResultTable";
 import Footer from "./Footer";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function ResultPage() {
+  const location = useLocation();
+  const userAnswers = location.state;
+
+  const navigateTo = useNavigate();
+
+  const [providedLabels, setProvidedLabels] = useState([]);
+  const [labelData, setLabelData] = useState([]);
+  const [tableData, setTableData] = useState([]);
+  const [totalScore, setTotalScore] = useState(0);
+
+  useEffect(() => {
+    console.log(userAnswers);
+  }, [userAnswers]);
+
+  useEffect(() => {
+    let total = 0;
+
+    userAnswers.map((providedData) => {
+      setProvidedLabels((prevLabels) => [...prevLabels, providedData.title]);
+      setLabelData((prevLabelData) => [...prevLabelData, providedData.score]);
+      setTableData((prevTableData) => [
+        ...prevTableData,
+        {
+          section: providedData.title,
+          score: providedData.score,
+        },
+      ]);
+      total += providedData.score;
+    });
+    setTotalScore(total);
+  }, [userAnswers]);
+
   return (
     <Box>
       <Navbarr />
@@ -17,10 +50,10 @@ export default function ResultPage() {
         </Center>
       </Box>
       <Center>
-        <Chart />
+        <Chart providedLabels={providedLabels} labelData={labelData} />
       </Center>
       <Center>
-        <Table />
+        <Table tableData={tableData} totalScore={totalScore} />
       </Center>
       <Center>
         <Button
@@ -28,6 +61,7 @@ export default function ResultPage() {
           _hover={{ bg: null }}
           backgroundColor="#01033C"
           color="white"
+          onClick={() => navigateTo("/view-response", { state: userAnswers })}
         >
           View Responses
         </Button>
@@ -52,6 +86,7 @@ export default function ResultPage() {
               textDecoration: "underline",
               cursor: "pointer",
             }}
+            onClick={() => navigateTo("/prev-results")}
           >
             View Previous Responses
           </Text>

@@ -10,41 +10,36 @@ import {
   Tbody,
   Tfoot,
 } from "@chakra-ui/react";
-import React from "react";
 
-export default function ResultTable() {
+export default function ResultTable({ tableData, totalScore }) {
   return (
     <TableContainer mt="2rem">
       <Table w="40vw" size="lg" variant="striped" color="#01033C">
-        <TableCaption>Imperial to metric conversion factors</TableCaption>
+        <TableCaption>Survey Scores</TableCaption>
         <Thead>
           <Tr backgroundColor="#01033C">
             <Th textAlign="center" color="white">
-              To convert
+              Section
             </Th>
             <Th textAlign="center" color="white">
-              into
+              Score
             </Th>
           </Tr>
         </Thead>
         <Tbody>
-          <Tr>
-            <Td>inches</Td>
-            <Td>millimetres (mm)</Td>
-          </Tr>
-          <Tr>
-            <Td>feet</Td>
-            <Td>centimetres (cm)</Td>
-          </Tr>
-          <Tr>
-            <Td>yards</Td>
-            <Td>metres (m)</Td>
-          </Tr>
+          {tableData.map((data) => {
+            return (
+              <Tr>
+                <Td textAlign="center">{data.section}</Td>
+                <Td textAlign="center">{data.score}</Td>
+              </Tr>
+            );
+          })}
         </Tbody>
         <Tfoot>
           <Tr>
-            <Th>To convert</Th>
-            <Th>into</Th>
+            <Th textAlign="center">Total</Th>
+            <Th textAlign="center">{totalScore}</Th>
           </Tr>
         </Tfoot>
       </Table>

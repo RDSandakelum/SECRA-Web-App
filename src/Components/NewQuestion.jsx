@@ -8,7 +8,6 @@ export default function Question(props) {
 
   function findDependingQuestions(providedAnswers, questionId) {
     const dependingQuestions = [];
-    console.log(providedAnswers);
     const sectionData = props.sectionData;
     sectionData.forEach((question) => {
       if (
@@ -20,7 +19,6 @@ export default function Question(props) {
         dependingQuestions.push(question);
       }
     });
-    setCurrentAnsweredID("");
     return dependingQuestions;
   }
 
@@ -48,18 +46,18 @@ export default function Question(props) {
           break;
         }
       }
-      // props.setAnswers((prevAns) => {
-      //   prevAns[currentSection].questions.map((que) => {
-      //     if (que.questionID === currentAnsweredID) {
-      //       let currentSectionData = que;
-      //       dependingQuestions.forEach((question) =>
-      //         currentSectionData?.dependingQuestions?.push(question)
-      //       );
-      //     }
-      //   });
+      props.setAnswers((prevAns) => {
+        prevAns[currentSection].questions.map((que) => {
+          if (que.questionID === currentAnsweredID) {
+            let currentSectionData = que;
+            dependingQuestions.forEach((question) =>
+              currentSectionData?.dependingQuestions?.push(question)
+            );
+          }
+        });
 
-      //   return [...prevAns];
-      // });
+        return [...prevAns];
+      });
     }
 
     // console.log("depending questions", dependingQuestions);
@@ -68,124 +66,79 @@ export default function Question(props) {
       props.setAnswers((prevAns) => {
         let currentSectionData =
           prevAns[currentSection].questions[props.questionIndex];
-        dependingQuestions.forEach((question) => {
-          console.log(currentSectionData.dependingQuestions, question);
-
-          // console.log(
-          //   currentSectionData.dependingQuestions.filter(
-          //     (dependingQ) => dependingQ.questionID !== question.questionID
-          //   )
-          // );
-          if (
-            currentSectionData.dependingQuestions.filter(
-              (dependingQ) => dependingQ.questionID === question.questionID
-            ).length === 0
-          ) {
-            currentSectionData?.dependingQuestions?.push(question);
-          }
-        });
+        dependingQuestions.forEach((question) =>
+          currentSectionData?.dependingQuestions?.push(question)
+        );
 
         return [...prevAns];
       });
     }
   };
 
-  // console.group(props.data);
   useEffect(() => {
     if (currentAnsweredID !== "") {
       pushDependingQuestions();
     }
-  }, [props.data, currentAnsweredID]);
+  }, [props.providedAnswers, currentAnsweredID]);
 
-  function removeDependingQuestions(answer, questionId) {
+  const handleUnchecked = (data, followUpID) => {
+    // if (followUpID) {
     props.setAnswers((prev) => {
-      let dependingQuestions = [...props.data.dependingQuestions];
+      let followupQue = {};
 
-      if (props.data.questionID !== questionId) {
-        let subQuestionProvidedAnswers = [];
-        prev[currentSection].questions[
-          props.questionIndex
-        ].dependingQuestions.map((que) => {
-          if (que.questionID === questionId) {
-            que.providedAnswers = que.providedAnswers.filter(
-              (value) => value !== answer
-            );
-            subQuestionProvidedAnswers = [...que.providedAnswers];
-          }
-        });
-
-        let subDependingQuestions = [];
-
-        subDependingQuestions = dependingQuestions.filter(
-          (question) =>
-            question.dependingQuestion === questionId &&
-            !question.dependingAnswer.some((answer) =>
-              subQuestionProvidedAnswers.some((subQAns) => subQAns === answer)
-            )
-        );
-
-        console.log("subdepquestions", subDependingQuestions);
-
-        let i = 0;
-        while (i < subDependingQuestions.length) {
-          subDependingQuestions = [
-            ...subDependingQuestions,
-            ...dependingQuestions.filter(
-              (question) =>
-                question.dependingQuestion ===
-                subDependingQuestions[i].questionID
-            ),
-          ];
-          i++;
-        }
-
-        subDependingQuestions.forEach((question) => {
-          question.providedAnswers = [];
-          dependingQuestions = dependingQuestions.filter(
-            (dependingQuestion) =>
-              dependingQuestion.questionID !== question.questionID
+      prev[currentSection].questions.map((que) => {
+        if (que.questionID === currentAnsweredID) {
+          followupQue = que;
+          console.log(followupQue);
+          followupQue.providedAnswers = followupQue.providedAnswers.filter(
+            (answer) => answer !== data
           );
-        });
-      } else {
-        prev[currentSection].questions[props.questionIndex].providedAnswers =
-          prev[currentSection].questions[
-            props.questionIndex
-          ].providedAnswers.filter((value) => value !== answer);
-
-        let subQuestionProvidedAnswers =
-          prev[currentSection].questions[props.questionIndex].providedAnswers;
-
-        console.log(subQuestionProvidedAnswers);
-
-        let subDependingQuestions = [];
-
-        subDependingQuestions = dependingQuestions.filter(
-          (question) =>
-            question.dependingQuestion === questionId &&
-            question.dependingAnswer.some((answer) =>
-              subQuestionProvidedAnswers.some((subQAns) => subQAns === answer)
-            )
-        );
-        if (subDependingQuestions.length === 0) {
-          dependingQuestions = [];
         }
-        props.data?.dependingQuestions?.forEach((question) => {
-          question.providedAnswers = [];
-        });
+      });
+
+      if (followupQue.providedAnswers.length > 0) {
+        followupQue.dependingQuestions = followupQue.dependingQuestions.filter(
+          (que) => {
+            return que.dependingAnswer.some((answer) =>
+              followupQue.providedAnswers.includes(answer)
+            );
+          }
+        );
+      } else {
+        followupQue.dependingQuestions = [];
       }
-      let currentSectionData =
-        prev[currentSection].questions[props.questionIndex];
-      currentSectionData.dependingQuestions = [...dependingQuestions];
+
       return [...prev];
     });
-  }
+    // } else {
+    //   props.setAnswers((prev) => {
+    //     prev[currentSection].questions[props.questionIndex].providedAnswers =
+    //       prev[currentSection].questions[
+    //         props.questionIndex
+    //       ].providedAnswers.filter((answer) => answer !== data);
 
-  const handleUnchecked = (data, id) => {
-    removeDependingQuestions(data, id);
-    setCurrentAnsweredID("");
+    //     let answers =
+    //       prev[currentSection].questions[props.questionIndex].providedAnswers;
+    //     if (answers.length > 0) {
+    //       prev[currentSection].questions[
+    //         props.questionIndex
+    //       ].dependingQuestions = prev[currentSection].questions[
+    //         props.questionIndex
+    //       ].dependingQuestions.filter((que) => {
+    //         return que.dependingAnswer.some((answer) =>
+    //           answers.includes(answer)
+    //         );
+    //       });
+    //     } else {
+    //       prev[currentSection].questions[
+    //         props.questionIndex
+    //       ].dependingQuestions = [];
+    //     }
+
+    //     return [...prev];
+    //   });
+    // }
   };
-
-  console.log(currentAnsweredID);
 
   return (
     <>
@@ -214,20 +167,18 @@ export default function Question(props) {
                       ) !== undefined
                     }
                     onChange={(e) => {
-                      setCurrentAnsweredID(props.data.questionID);
+                      console.log(e.target.checked);
                       if (e.target.checked) {
                         props.setAnswers((prev) => {
-                          prev[currentSection].questions.map((que) => {
-                            if (que.questionID === props.data.questionID) {
-                              que.providedAnswers.push(e.target.value);
-                            }
-                          });
+                          prev[currentSection].questions[
+                            props.questionIndex
+                          ].providedAnswers.push(e.target.value);
 
                           return [...prev];
                         });
+                        setCurrentAnsweredID(props.data.questionID);
                       } else {
-                        // setCurrentAnsweredID(props.data.questionID);
-                        handleUnchecked(e.target.value, props.data.questionID);
+                        handleUnchecked(e.target.value);
                       }
                     }}
                   >
@@ -271,8 +222,10 @@ export default function Question(props) {
                             ) !== undefined
                           }
                           onChange={(e) => {
+                            console.log(e.target.checked);
                             if (e.target.checked) {
                               props.setAnswers((prev) => {
+                                setCurrentAnsweredID(followUp.questionID);
                                 prev[currentSection].questions.map((que) => {
                                   if (que.questionID === followUp.questionID) {
                                     que.providedAnswers.push(e.target.value);
@@ -281,10 +234,7 @@ export default function Question(props) {
 
                                 return [...prev];
                               });
-                              setCurrentAnsweredID(followUp.questionID);
-                              // console.log(currentAnsweredID);
                             } else {
-                              // setCurrentAnsweredID(followUp.questionID);
                               handleUnchecked(
                                 e.target.value,
                                 followUp.questionID
@@ -313,10 +263,9 @@ export default function Question(props) {
                 >
                   <Text fontWeight="medium">{followUp.question}</Text>
                   <Box width={{ base: "100%", md: "60%" }}>
-                    {console.log(followUp.providedAnswers)}
                     <input
                       id={followUp.questionID}
-                      value={followUp.providedAnswers[0]}
+                      value={followUp ? followUp.providedAnswers[0] : ""}
                       onChange={(e) => {
                         props.setAnswers((prev) => {
                           prev[currentSection].questions.map((que) => {
@@ -327,7 +276,6 @@ export default function Question(props) {
 
                           return [...prev];
                         });
-                        setCurrentAnsweredID(followUp.questionID);
                       }}
                       style={{
                         width: "100%",

@@ -12,6 +12,7 @@ const section_01 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1,1.5,0.5]
   },
   {
     questionID: "01.02",
@@ -19,6 +20,7 @@ const section_01 = [
     dependOn: true,
     dependingQuestion: "01.01",
     dependingAnswer: ["Other"],
+    score:[1],
   },
   {
     questionID: "01.03",
@@ -35,6 +37,8 @@ const section_01 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1.5,0.5, 2,1,1,0.6],
+
   },
   {
     questionID: "01.04",
@@ -42,6 +46,7 @@ const section_01 = [
     dependOn: true,
     dependingQuestion: "01.03",
     dependingAnswer: ["Other"],
+    score:[1],
   },
   {
     questionID: "01.05",
@@ -51,6 +56,8 @@ const section_01 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1.5,1,0.6],
+
   },
   {
     questionID: "01.06",
@@ -64,6 +71,7 @@ const section_01 = [
     dependOn: true,
     dependingQuestion: "01.05",
     dependingAnswer: ["Yes, occasionally"],
+    scores:[1.5,0.5,1,2],
   },
   {
     questionID: "01.07",
@@ -71,6 +79,7 @@ const section_01 = [
     dependOn: true,
     dependingQuestion: "01.06",
     dependingAnswer: ["Other"],
+    scores:[1]
   },
   {
     questionID: "01.08",
@@ -80,6 +89,8 @@ const section_01 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1.5,0.5,1],
+
   },
   {
     questionID: "01.09",
@@ -89,6 +100,8 @@ const section_01 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,1,2],
+
   },
   {
     questionID: "01.10",
@@ -98,6 +111,8 @@ const section_01 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[0.5,1],
+
   },
 ];
 
@@ -110,6 +125,8 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1,0.5,1]
+
   },
   {
     questionID: "02.02",
@@ -123,6 +140,8 @@ const section_02 = [
     dependOn: true,
     dependingQuestion: "02.01",
     dependingAnswer: ["Yes, several", "Yes, one"],
+    scores:[0.5,1,2,1]
+
   },
   {
     questionID: "02.03",
@@ -132,6 +151,8 @@ const section_02 = [
     dependOn: true,
     dependingQuestion: "02.01",
     dependingAnswer: ["Yes, several", "Yes, one"],
+    scores:[2,1]
+
   },
   {
     questionID: "02.04",
@@ -144,6 +165,8 @@ const section_02 = [
     dependOn: true,
     dependingQuestion: "02.03",
     dependingAnswer: ["Yes"],
+    scores:[2,0.7,1]
+
   },
   {
     questionID: "02.05",
@@ -157,6 +180,8 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[0.7,1.5,0]
+
   },
   {
     questionID: "02.06",
@@ -166,6 +191,8 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[0,0.7,1.5]
+
   },
   {
     questionID: "02.07",
@@ -182,13 +209,16 @@ const section_02 = [
     dependOn: true,
     dependingQuestion: "02.06",
     dependingAnswer: ["Yes, once a year or more often", "Yes, occasionally"],
+     scores:[2,1,0.5,1,2,1.5,0]
   },
   {
     questionID: "02.08",
     question: "What other role(s) are involved?",
     dependOn: true,
-    dependingQuestion: "01.07",
+    dependingQuestion: "02.07",
     dependingAnswer: ["Other"],
+     scores:[1]
+
   },
   {
     questionID: "02.09",
@@ -203,13 +233,17 @@ const section_02 = [
     dependOn: true,
     dependingQuestion: "02.06",
     dependingAnswer: ["Yes, once a year or more often", "Yes, occasionally"],
+     scores:[1,1.2,2,1.5,0]
+
   },
   {
     questionID: "02.10",
     question: "Please indicate what context(s) the results are used in.",
     dependOn: true,
-    dependingQuestion: "01.09",
+    dependingQuestion: "02.09",
     dependingAnswer: ["Other"],
+     scores:[1]
+
   },
   {
     questionID: "02.11",
@@ -226,6 +260,7 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,0,1,1.2,3],
   },
   {
     questionID: "02.12",
@@ -233,6 +268,8 @@ const section_02 = [
     dependOn: true,
     dependingQuestion: "02.11",
     dependingAnswer: ["In other way"],
+    scores:[1],
+
   },
   {
     questionID: "02.13",
@@ -249,6 +286,8 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,0,1,1.2,3],
+
   },
   {
     questionID: "02.14",
@@ -256,6 +295,8 @@ const section_02 = [
     dependOn: true,
     dependingQuestion: "02.13",
     dependingAnswer: ["Other way"],
+    scores:[1],
+
   },
   {
     questionID: "02.15",
@@ -265,6 +306,8 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[0,1,1.2,3],
+
   },
   {
     questionID: "02.16",
@@ -274,6 +317,8 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,3,1],
+
   },
 ];
 
@@ -292,6 +337,8 @@ const section_03 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,0,3,1],
+
   },
   {
     questionID: "03.02",
@@ -299,6 +346,8 @@ const section_03 = [
     dependOn: true,
     dependingQuestion: "03.01",
     dependingAnswer: ["Others"],
+    scores:[1],
+
   },
   {
     questionID: "03.03",
@@ -308,6 +357,8 @@ const section_03 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1,1.2,3],
+
   },
   {
     questionID: "03.04",
@@ -317,6 +368,8 @@ const section_03 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,3],
+
   },
   {
     questionID: "03.05",
@@ -331,6 +384,8 @@ const section_03 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[0,1,0.5,3],
+
   },
   {
     questionID: "03.06",
@@ -338,6 +393,8 @@ const section_03 = [
     dependOn: true,
     dependingQuestion: "03.05",
     dependingAnswer: ["In other ways"],
+    scores:[1],
+
   },
   {
     questionID: "03.07",
@@ -347,6 +404,8 @@ const section_03 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1],
+
   },
   {
     questionID: "03.08",
@@ -356,6 +415,8 @@ const section_03 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1,1.5,0.5],
+
   },
   {
     questionID: "03.09",
@@ -363,6 +424,8 @@ const section_03 = [
     dependOn: true,
     dependingQuestion: "03.08",
     dependingAnswer: ["Others"],
+    scores:[1],
+
   },
   {
     questionID: "03.10",
@@ -382,6 +445,8 @@ const section_03 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1,2,3,4,5,4,3,2,1],
+
   },
   {
     questionID: "03.11",
@@ -389,6 +454,8 @@ const section_03 = [
     dependOn: true,
     dependingQuestion: "03.10",
     dependingAnswer: ["Other way"],
+    scores:[1],
+
   },
 ];
 
@@ -401,6 +468,8 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1],
+
   },
   {
     questionID: "04.02",
@@ -409,6 +478,8 @@ const section_04 = [
     dependOn: true,
     dependingQuestion: "04.01",
     dependingAnswer: ["Yes"],
+    scores:[1,1.5,0.5],
+
   },
   {
     questionID: "04.03",
@@ -421,6 +492,8 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1,1.5,0.5],
+
   },
   {
     questionID: "04.04",
@@ -430,6 +503,8 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1,0.5],
+
   },
   {
     questionID: "04.05",
@@ -438,6 +513,8 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1,1.5,0.5],
+
   },
   {
     questionID: "04.06",
@@ -447,6 +524,8 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1],
+
   },
   {
     questionID: "04.07",
@@ -463,6 +542,8 @@ const section_04 = [
     dependOn: true,
     dependingQuestion: "04.06",
     dependingAnswer: ["Yes"],
+    scores:[2,1,0,1.5,0.5,1,0],
+
   },
   {
     questionID: "04.08",
@@ -476,6 +557,8 @@ const section_04 = [
     dependOn: true,
     dependingQuestion: "04.06",
     dependingAnswer: ["Yes"],
+    scores:[2,1.5,0.5,1],
+
   },
   {
     questionID: "04.09",
@@ -485,6 +568,8 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1.5,0.5,0],
+
   },
   {
     questionID: "04.10",
@@ -494,6 +579,8 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1.5,0.5,0],
+
   },
   {
     questionID: "04.11",
@@ -508,6 +595,8 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1,1.5,0.5],
+
   },
 ];
 
@@ -520,6 +609,8 @@ const section_05 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1],
+
   },
   {
     questionID: "05.02",
@@ -536,6 +627,8 @@ const section_05 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1,1.5,0.5,1,0],
+
   },
   {
     questionID: "05.03",
@@ -543,6 +636,8 @@ const section_05 = [
     dependOn: true,
     dependingQuestion: "05.02",
     dependingAnswer: ["Other"],
+    scores:[1],
+
   },
   {
     questionID: "05.04",
@@ -552,6 +647,8 @@ const section_05 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1,1.5],
+
   },
   {
     questionID: "05.05",
@@ -561,6 +658,8 @@ const section_05 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,1,0],
+
   },
   {
     questionID: "05.06",
@@ -570,6 +669,8 @@ const section_05 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1,0.5],
+
   },
   {
     questionID: "05.07",
@@ -583,6 +684,8 @@ const section_05 = [
     dependOn: true,
     dependingQuestion: "05.06",
     dependingAnswer: ["Yes, always", "Yes, sometimes"],
+    scores:[2,1,1.5,0.5],
+
   },
   {
     questionID: "05.08",
@@ -590,6 +693,8 @@ const section_05 = [
     dependOn: true,
     dependingQuestion: "05.07",
     dependingAnswer: ["Other"],
+    scores:[1],
+
   },
   {
     questionID: "05.09",
@@ -603,6 +708,8 @@ const section_05 = [
     dependOn: true,
     dependingQuestion: "05.06",
     dependingAnswer: ["Yes, always", "Yes, sometimes"],
+    scores:[2,1,1.5,0.5],
+
   },
   {
     questionID: "05.10",
@@ -610,6 +717,8 @@ const section_05 = [
     dependOn: true,
     dependingQuestion: "05.09",
     dependingAnswer: ["Other"],
+    scores:[1],
+
   },
 ];
 
@@ -627,6 +736,8 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1,1.5,0.5],
+
   },
   {
     questionID: "06.02",
@@ -639,6 +750,8 @@ const section_06 = [
       "Yes, at the faculty/school level",
       "Yes, at the department level",
     ],
+    scores:[2,1],
+
   },
   {
     questionID: "06.03",
@@ -648,6 +761,8 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1,0],
+
   },
   {
     questionID: "06.04",
@@ -661,6 +776,8 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1,1,1.5],
+
   },
   {
     questionID: "06.05",
@@ -675,6 +792,8 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[0.5,1,1.5,2],
+
   },
   {
     questionID: "06.06",
@@ -684,6 +803,8 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,0],
+
   },
   {
     questionID: "06.07",
@@ -699,6 +820,8 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1,2,3,4,0],
+
   },
   {
     questionID: "06.08",
@@ -714,6 +837,8 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[4,3,2,1,0],
+
   },
   {
     questionID: "06.09",
@@ -729,6 +854,8 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1,1.5,0.5,0],
+
   },
   {
     questionID: "06.10",
@@ -743,6 +870,8 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1,2,1.5,0.5],
+
   },
 ];
 
@@ -755,6 +884,8 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1,1,1.5,0.5],
+
   },
   {
     questionID: "07.02",
@@ -764,6 +895,8 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,1,0.5],
+
   },
   {
     questionID: "07.03",
@@ -773,6 +906,8 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1,1.5,1],
+    
   },
   {
     questionID: "07.04",
@@ -788,6 +923,8 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,1,0.5,0],
+
   },
   {
     questionID: "07.05",
@@ -795,6 +932,8 @@ const section_07 = [
     dependOn: true,
     dependingQuestion: "07.04",
     dependingAnswer: ["Yes, someone else"],
+    scores:[1],
+
   },
   {
     questionID: "07.06",
@@ -817,6 +956,8 @@ const section_07 = [
       "Yes, the UoA director",
       "Yes, someone else",
     ],
+    scores:[2,1.5,1,0.5,1.5,1,0.5,0],
+
   },
   {
     questionID: "07.07",
@@ -824,6 +965,8 @@ const section_07 = [
     dependOn: true,
     dependingQuestion: "07.06",
     dependingAnswer: ["In other ways"],
+        scores:[1],
+
   },
   {
     questionID: "07.08",
@@ -833,6 +976,8 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[0.5,1.5,1],
+
   },
   {
     questionID: "07.09",
@@ -842,6 +987,8 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,1],
+
   },
   {
     questionID: "07.10",
@@ -855,6 +1002,8 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[1,0.5,1.5,1],
+
   },
   {
     questionID: "07.11",
@@ -864,7 +1013,10 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
+    scores:[2,1.5,1,0.5],
   },
+    
+
 ];
 
 export {

@@ -9,6 +9,7 @@ import NotFound from "./Components/NotFound";
 import PrevResponsesPage from "./Components/PrevResponsesPage";
 
 import { atom } from "jotai";
+import ResponsePage from "./Components/ResponsePage";
 
 export const answersAtom = atom({});
 
@@ -20,6 +21,7 @@ function App() {
       <Route path="/result" element={<ResultPage />} />
       <Route path="/*" element={<NotFound />} />
       <Route path="/prev-results" element={<PrevResponsesPage />} />
+      <Route path="/view-response" element={<ResponsePage />} />
     </Routes>
   );
 }
