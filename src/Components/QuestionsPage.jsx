@@ -33,7 +33,7 @@ export default function QuestionsPage() {
       ? location.state
       : [
           {
-            title: "Section_1",
+            title: "Organisation",
             questions: section_01.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -41,7 +41,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "Section_2",
+            title: "Quality Assurance",
             questions: section_02.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -49,7 +49,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "Section_3",
+            title: "Development",
             questions: section_03.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -57,7 +57,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "Section_4",
+            title: "Integration",
             questions: section_04.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -65,7 +65,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "Section_5",
+            title: "Activities",
             questions: section_05.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -73,7 +73,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "Section_6",
+            title: "Institutional Support",
             questions: section_06.map((data) => ({
               ...data,
               providedAnswers: [],
@@ -81,7 +81,7 @@ export default function QuestionsPage() {
             })),
           },
           {
-            title: "Section_7",
+            title: "External Environment",
             questions: section_07.map((data) => ({
               ...data,
               providedAnswers: [],
