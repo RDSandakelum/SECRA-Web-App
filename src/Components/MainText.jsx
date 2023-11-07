@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function MainText(props) {
   const textWithNewLine = "Welcome to <br />SECRA.";
   const textWithNewPara =
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia quas, nemo modi illo ullam minus illum voluptates labore atque accusantium voluptatem dolorum, voluptatum placeat perspiciatis optio laudantium quam sed itaque?";
+    "LDDDD, ipsum dolor sit amet consectetur adipisicing elit. Mollitia quas, nemo modi illo ullam minus illum voluptates labore atque accusantium voluptatem dolorum, voluptatum placeat perspiciatis optio laudantium quam sed itaque?";
 
   const navigate = useNavigate();
   return (

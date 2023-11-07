@@ -111,10 +111,10 @@ export default function QuestionsPage() {
       const userId = auth.currentUser.uid;
       const formattedDate = getCurrentDateAndTime().toString();
       const dataToSave = {
-        [formattedDate]: userAnswers,
+        [formattedDate]: JSON.stringify(userAnswers),
       };
       console.log(dataToSave, userAnswers);
-      // await updateDoc(doc(db, "userAnswers", userId), dataToSave);
+      await updateDoc(doc(db, "userAnswers", userId), dataToSave);
       console.log("from Save Data");
     }
   };
