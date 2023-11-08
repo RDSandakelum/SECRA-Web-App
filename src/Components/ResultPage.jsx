@@ -70,8 +70,10 @@ export default function ResultPage() {
         <Flex
           fontWeight="bold"
           mb="2rem"
+          direction={{ base: "column", md: "row" }}
           justifyContent="space-between"
           w="50vw"
+          textAlign={{ base: "center", md: "none" }}
         >
           <Text
             _hover={{
