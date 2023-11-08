@@ -1,13 +1,37 @@
 import React, { useEffect, useState } from "react";
 import Navbarr from "./Navbarr";
 import Chart from "./Chart";
-import { Box, Heading, Center, Button, Text, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Center,
+  Button,
+  Text,
+  Flex,
+  useToast,
+} from "@chakra-ui/react";
 import Table from "./ResultTable";
 import Footer from "./Footer";
 import { useNavigate, useLocation } from "react-router-dom";
 import { getSectionName } from "../functions/sectionRenaming";
+import { auth } from "../Config/firebase-config";
 
 export default function ResultPage() {
+  const toast = useToast();
+  const navigateToPrevResults = () => {
+    // const user = auth?.currentUser;
+    // if (user) {
+    //   navigateTo("/prev-results");
+    // } else {
+    //   toast({
+    //     title: "Please Log In",
+    //     description: "Log in to continue...",
+    //     status: "info",
+    //     duration: 2000,
+    //     isClosable: true,
+    //   });
+    // }
+  };
   const location = useLocation();
   const [userAnswers, setUserAnswers] = useState(location.state);
 
@@ -90,7 +114,7 @@ export default function ResultPage() {
               textDecoration: "underline",
               cursor: "pointer",
             }}
-            onClick={() => navigateTo("/prev-results")}
+            onClick={navigateToPrevResults}
           >
             View Previous Responses
           </Text>
