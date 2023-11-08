@@ -5,14 +5,16 @@ import Navbarr from "./Navbarr";
 import MainComponent from "./MainComponent";
 import About from "./About";
 import Footer from "./Footer";
+import ContactUs from "./ContactUs";
 
 export default function HomePage() {
-  return (
-    <Box>
-      <Navbarr />
-      <MainComponent />
-      {/* <About /> */}
-      <Footer />
-    </Box>
-  );
+    return (
+        <Box>
+            <Navbarr />
+            <MainComponent />
+            <About />
+            <ContactUs />
+            <Footer />
+        </Box>
+    );
 }

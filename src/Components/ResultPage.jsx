@@ -5,10 +5,11 @@ import { Box, Heading, Center, Button, Text, Flex } from "@chakra-ui/react";
 import Table from "./ResultTable";
 import Footer from "./Footer";
 import { useNavigate, useLocation } from "react-router-dom";
+import { getSectionName } from "../functions/sectionRenaming";
 
 export default function ResultPage() {
   const location = useLocation();
-  const userAnswers = location.state;
+  const [userAnswers, setUserAnswers] = useState(location.state);
 
   const navigateTo = useNavigate();
 
@@ -18,24 +19,25 @@ export default function ResultPage() {
   const [totalScore, setTotalScore] = useState(0);
 
   useEffect(() => {
-    console.log(userAnswers);
-  }, [userAnswers]);
-
-  useEffect(() => {
     let total = 0;
+    let providedLabels = [];
+    let labelData = [];
+    let tableData = [];
 
-    userAnswers.map((providedData) => {
-      setProvidedLabels((prevLabels) => [...prevLabels, providedData.title]);
-      setLabelData((prevLabelData) => [...prevLabelData, providedData.score]);
-      setTableData((prevTableData) => [
-        ...prevTableData,
-        {
-          section: providedData.title,
-          score: providedData.score,
-        },
-      ]);
+    userAnswers.forEach((providedData) => {
+      let cleanedTitle = getSectionName(providedData.title);
+      providedLabels.push(cleanedTitle);
+      labelData.push(providedData.score);
+      tableData.push({
+        section: cleanedTitle,
+        score: providedData.score,
+      });
       total += providedData.score;
     });
+
+    setProvidedLabels(providedLabels);
+    setLabelData(labelData);
+    setTableData(tableData);
     setTotalScore(total);
   }, [userAnswers]);
 

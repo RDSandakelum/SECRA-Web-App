@@ -9,15 +9,12 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { userProvidedData } from "../Data/Results";
+import { getSectionName } from "../functions/sectionRenaming";
 
 export default function ResponsePage() {
   const location = useLocation();
   const [queAndAnswers, setQueAndAnswers] = useState(location.state);
   const navigateTo = useNavigate();
-  // const [queAndAnswers, setQueAndAnswers] = useState(userProvidedData);
-
-  console.log(queAndAnswers);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,7 +27,9 @@ export default function ResponsePage() {
           <div key={queAndAnswer.title}>
             <br />
             <Center>
-              <Heading ml="1rem">Section {index + 1}</Heading>
+              <Heading ml="1rem">
+                Section {index + 1} - {getSectionName(queAndAnswer.title)}
+              </Heading>
             </Center>
 
             {queAndAnswer.questions.map((question) => {
@@ -58,6 +57,7 @@ export default function ResponsePage() {
                       {question.answers.map((answer, index) => (
                         <Box key={index} width={{ base: "100%", md: "30%" }}>
                           <Checkbox
+                            readOnly
                             mt={{ md: "1rem" }}
                             value={answer}
                             isChecked={question.providedAnswers.includes(

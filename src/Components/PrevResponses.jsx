@@ -1,6 +1,11 @@
 import React from "react";
-import { Box, Flex, Text, Center } from "@chakra-ui/react";
-export default function PrevResponses() {
+import { Box, Flex, Text, Center, Button } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { userProvidedData } from "../Data/Results";
+
+export default function PrevResponses({ data }) {
+  const navigateTo = useNavigate();
+
   return (
     <Center>
       <Box
@@ -11,9 +16,18 @@ export default function PrevResponses() {
         bg="white"
         w="70%"
       >
-        <Flex justify="space-between">
-          <Text>Date</Text>
-          <Text>Score</Text>
+        <Flex justify="space-between" alignItems="center">
+          <Text>{data.date}</Text>
+          <Text>{data.score}</Text>
+          <Button
+            size="sm"
+            _hover={{ bg: null }}
+            backgroundColor="#01033C"
+            color="white"
+            onClick={() => navigateTo("/result", { state: userProvidedData })}
+          >
+            View Summary
+          </Button>
         </Flex>
       </Box>
     </Center>

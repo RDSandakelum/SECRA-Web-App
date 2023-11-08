@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Question from "./Question";
 
 export default function Section(props) {
-  // console.log(props.answers);
   return (
     <Box id={props.id} mt="2rem" ml="1rem" w="98%">
       <Center>
@@ -18,7 +17,6 @@ export default function Section(props) {
             data={question}
             providedAnswers={question.providedAnswers}
             dependingAnswer={question.dependingAnswer}
-            // sectionID={props.id}
             setAnswers={props.setAnswers}
             sectionData={props.answers.questions}
             currentSection={props.currentSection}
