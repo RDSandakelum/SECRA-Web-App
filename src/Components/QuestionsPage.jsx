@@ -13,7 +13,7 @@ import {
   section_07,
 } from "../Data/Questions";
 import { auth, db } from "../Config/firebase-config";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, setDoc, addDoc, collection } from "firebase/firestore";
 import { useNavigate, useLocation } from "react-router-dom";
 export default function QuestionsPage() {
   const sections = [
@@ -94,27 +94,27 @@ export default function QuestionsPage() {
         ]
   );
 
-  function getCurrentDateAndTime() {
-    const now = new Date();
-    const year = now.getFullYear().toString().slice(-2); // Get the last 2 digits of the year
-    const month = (now.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
-    const day = now.getDate().toString().padStart(2, "0");
-    const hours = now.getHours().toString().padStart(2, "0");
-    const minutes = now.getMinutes().toString().padStart(2, "0");
-
-    return `${year} ${month} ${day}-${hours} ${minutes}`;
-  }
-
   const saveData = async (userAnswers) => {
     const user = auth?.currentUser;
     if (user) {
+      let total = 0;
+      userAnswers.map((providedData) => {
+        total += providedData.score;
+      });
       const userId = auth.currentUser.uid;
-      const formattedDate = getCurrentDateAndTime().toString();
       const dataToSave = {
-        [formattedDate]: JSON.stringify(userAnswers),
+        score: total,
+        userId: userId,
+        date: new Date(),
+        user_answers: JSON.stringify(userAnswers),
       };
       console.log(dataToSave, userAnswers);
-      await updateDoc(doc(db, "userAnswers", userId), dataToSave);
+
+      // await setDoc(doc(db, "userAnswers", ""), dataToSave);
+      // const id = collection(db, "userAnswers").;
+      // await setDoc(doc(db, "userAnswers", id), dataToSave);
+
+      await addDoc(collection(db, "userAnswers"), dataToSave);
       console.log("from Save Data");
     }
   };
