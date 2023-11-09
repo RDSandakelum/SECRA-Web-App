@@ -4,10 +4,10 @@ import { Box, Button, Grid, GridItem, Text } from "@chakra-ui/react";
 
 export default function About() {
   const textWithNewPara =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum neque eu nunc lobortis efficitur. Vivamus volutpat porttitor ante sed egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum neque eu nunc lobortis efficitur.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum neque eu nunc lobortis efficitur. ";
+    "SECRA (Strengthening University-Enterprise Collaboration for Resilient Communities in Asia) is an International project funded by the European Commission ERASMUS+ scheme. SECRA demonstrates European added value through its transnational character aimed at a sustainable systemic impact. More specifically, SECRA promotes the sustainable development of the partner countries in the field of higher education according to Article 4 of EU regulation 1288 (2013).";
 
   return (
-    <Box width="100vw" height="100vh" position="relative">
+    <Box id="About" width="100vw" height="100vh" position="relative">
       <Box
         top={0}
         left={0}
@@ -71,6 +71,7 @@ export default function About() {
               fontSize="20px"
               color="rgba(255, 255, 255, 1)"
               lineHeight="25px"
+              textAlign="center"
             >
               {textWithNewPara}
             </Text>

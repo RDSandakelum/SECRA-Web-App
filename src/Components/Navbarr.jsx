@@ -1,7 +1,7 @@
+// Navbar.js
 import React, { useState, useEffect } from "react";
-import RegistrationForm from "./RegistrationForm";
-import LoginForm from "./LoginForm";
-import { Link, Navigate } from "react-router-dom";
+import { Link as NavigationLink, Navigate } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { auth } from "../Config/firebase-config";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import {
@@ -16,6 +16,7 @@ import {
   ModalContent,
   ModalCloseButton,
   ModalBody,
+  Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
@@ -87,6 +88,8 @@ function Navbar() {
     });
   }, []);
 
+  const isHomePage = window.location.pathname === "/";
+
   return (
     <Box py="5px" style={transparentBoxStyles}>
       <Flex
@@ -98,7 +101,7 @@ function Navbar() {
       >
         {/* Left-hand corner logo */}
         <Box>
-          <Text fontSize="2xl">Your Logo</Text>
+          <Image src="src\assets\SECRA_LOGO.png" alt="Logo" w="100px" />
         </Box>
 
         {/* Hamburger menu for mobile */}
@@ -111,6 +114,40 @@ function Navbar() {
 
         {/* Normal navbar for larger screens */}
         <Flex display={{ base: "none", md: "flex" }} align="center">
+          {isHomePage ? (
+            <Box
+              _hover={{
+                color: "#01033c",
+                borderColor: "#01033c",
+                borderWidth: "0px 0px 2px 0px",
+                transform: "translateY(-3px)",
+                transition: "transform 0.2s ease",
+                cursor: "pointer",
+              }}
+              mx={4}
+            >
+              <ScrollLink to="Home" smooth={true} duration={500}>
+                <Text>Home</Text>
+              </ScrollLink>
+            </Box>
+          ) : (
+            <Box
+              _hover={{
+                color: "#01033c",
+                borderColor: "#01033c",
+                borderWidth: "0px 0px 2px 0px",
+                transform: "translateY(-3px)",
+                transition: "transform 0.2s ease",
+                cursor: "pointer",
+              }}
+              mx={4}
+            >
+              <NavigationLink to="/">
+                <Text>Home</Text>
+              </NavigationLink>
+            </Box>
+          )}
+
           <Box
             _hover={{
               color: "#01033c",
@@ -122,22 +159,9 @@ function Navbar() {
             }}
             mx={4}
           >
-            <Link to="/">
-              <Text>Home</Text>
-            </Link>
-          </Box>
-          <Box
-            _hover={{
-              color: "#01033c",
-              borderColor: "#01033c",
-              borderWidth: "0px 0px 2px 0px",
-              transform: "translateY(-3px)",
-              transition: "transform 0.2s ease",
-              cursor: "pointer",
-            }}
-            mx={4}
-          >
-            <Text>About</Text>
+            <ScrollLink to="About" smooth={true} duration={500}>
+              <Text>About</Text>
+            </ScrollLink>
           </Box>
           {log}
           <Box mx={4}>
@@ -163,11 +187,24 @@ function Navbar() {
           mt={2}
           textAlign="center"
         >
+          {isHomePage ? (
+            <Box borderTop="1px" borderColor="#01033c">
+              <ScrollLink to="Home" smooth={true} duration={500}>
+                <Text>Home</Text>
+              </ScrollLink>
+            </Box>
+          ) : (
+            <Box borderTop="1px" borderColor="#01033c">
+              <NavigationLink to="/">
+                <Text>Home</Text>
+              </NavigationLink>
+            </Box>
+          )}
+
           <Box borderTop="1px" borderColor="#01033c">
-            <Text py={2}>Home</Text>
-          </Box>
-          <Box borderTop="1px" borderColor="#01033c">
-            <Text py={2}>About</Text>
+            <ScrollLink to="About" smooth={true} duration={500}>
+              <Text>About</Text>
+            </ScrollLink>
           </Box>
           {log}
           <Box>
@@ -191,9 +228,7 @@ function Navbar() {
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
-          <ModalBody>
-            <LoginForm />
-          </ModalBody>
+          <ModalBody>{/* LoginForm component */}</ModalBody>
         </ModalContent>
       </Modal>
 
@@ -206,9 +241,7 @@ function Navbar() {
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
-          <ModalBody>
-            <RegistrationForm />
-          </ModalBody>
+          <ModalBody>{/* RegistrationForm component */}</ModalBody>
         </ModalContent>
       </Modal>
     </Box>

@@ -8,13 +8,13 @@ import Footer from "./Footer";
 import ContactUs from "./ContactUs";
 
 export default function HomePage() {
-    return (
-        <Box>
-            <Navbarr />
-            <MainComponent />
-            <About />
-            <ContactUs />
-            <Footer />
-        </Box>
-    );
+  return (
+    <Box id="Home" w="100vw">
+      <Navbarr />
+      <MainComponent />
+      <About />
+      <ContactUs />
+      <Footer />
+    </Box>
+  );
 }
