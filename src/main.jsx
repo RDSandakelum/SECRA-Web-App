@@ -6,8 +6,8 @@ import { BrowserRouter } from "react-router-dom";
 
 const theme = extendTheme({
   fonts: {
-    body: "Nunito, sans-serif",
-    heading: "Nunito, sans-serif",
+    body: "Outfit, sans-serif",
+    heading: "Outfit, sans-serif",
   },
 });
 

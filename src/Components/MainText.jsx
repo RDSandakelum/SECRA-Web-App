@@ -28,9 +28,8 @@ export default function MainText(props) {
       <Text
         mt="24px"
         fontWeight="500"
-        fontStyle="italic"
         fontSize="20px"
-        fontFamily="cursive"
+        fontFamily="outfit"
         color="#01033c"
         dangerouslySetInnerHTML={{ __html: textWithNewPara }}
         lineHeight="1.2"
