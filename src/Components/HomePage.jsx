@@ -13,7 +13,7 @@ export default function HomePage() {
       <Navbarr />
       <MainComponent />
       <About />
-      <ContactUs />
+      {/* <ContactUs /> */}
       <Footer />
     </Box>
   );

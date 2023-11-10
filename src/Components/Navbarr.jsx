@@ -4,6 +4,8 @@ import { Link as NavigationLink, Navigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { auth } from "../Config/firebase-config";
 import { signOut, onAuthStateChanged } from "firebase/auth";
+import LoginForm from "./LoginForm";
+import RegistrationForm from "./RegistrationForm";
 import {
   Box,
   Flex,
@@ -228,7 +230,9 @@ function Navbar() {
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
-          <ModalBody>{/* LoginForm component */}</ModalBody>
+          <ModalBody>
+            <LoginForm />
+          </ModalBody>
         </ModalContent>
       </Modal>
 
@@ -241,7 +245,9 @@ function Navbar() {
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
-          <ModalBody>{/* RegistrationForm component */}</ModalBody>
+          <ModalBody>
+            <RegistrationForm />
+          </ModalBody>
         </ModalContent>
       </Modal>
     </Box>
