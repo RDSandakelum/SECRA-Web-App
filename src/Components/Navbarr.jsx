@@ -150,21 +150,23 @@ function Navbar() {
             </Box>
           )}
 
-          <Box
-            _hover={{
-              color: "#01033c",
-              borderColor: "#01033c",
-              borderWidth: "0px 0px 2px 0px",
-              transform: "translateY(-3px)",
-              transition: "transform 0.2s ease",
-              cursor: "pointer",
-            }}
-            mx={4}
-          >
-            <ScrollLink to="About" smooth={true} duration={500}>
-              <Text>About</Text>
-            </ScrollLink>
-          </Box>
+          {isHomePage && (
+            <Box
+              _hover={{
+                color: "#01033c",
+                borderColor: "#01033c",
+                borderWidth: "0px 0px 2px 0px",
+                transform: "translateY(-3px)",
+                transition: "transform 0.2s ease",
+                cursor: "pointer",
+              }}
+              mx={4}
+            >
+              <ScrollLink to="About" smooth={true} duration={500}>
+                <Text>About</Text>
+              </ScrollLink>
+            </Box>
+          )}
           {log}
           <Box mx={4}>
             <Button

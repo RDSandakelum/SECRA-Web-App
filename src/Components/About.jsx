@@ -1,8 +1,11 @@
 import React from "react";
 import Group from "../assets/group-people.png";
 import { Box, Button, Grid, GridItem, Text } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export default function About() {
+  const navigate = useNavigate();
+
   const textWithNewPara =
     "SECRA (Strengthening University-Enterprise Collaboration for Resilient Communities in Asia) is an International project funded by the European Commission ERASMUS+ scheme. SECRA demonstrates European added value through its transnational character aimed at a sustainable systemic impact. More specifically, SECRA promotes the sustainable development of the partner countries in the field of higher education according to Article 4 of EU regulation 1288 (2013).";
 
@@ -33,6 +36,7 @@ export default function About() {
             order={{ base: 2, md: 1 }}
           >
             <Box
+              display={{ base: "none", md: "inline-block" }}
               position="relative"
               height={{ base: "250px", md: "500px" }}
               width={{ base: "250px", md: "615px" }}
@@ -74,6 +78,21 @@ export default function About() {
               textAlign="center"
             >
               {textWithNewPara}
+              <br />
+              <Button
+                mt="26px"
+                _hover={{ bg: null }}
+                onClick={() => {
+                  navigate("/about-secra");
+                  console.log("clicked");
+                }}
+                color="white"
+                bgGradient="linear(to-b, #01033c 66.66%, #232484)"
+                w="200px"
+                mx="auto"
+              >
+                Learn more ...
+              </Button>
             </Text>
           </GridItem>
         </Grid>
