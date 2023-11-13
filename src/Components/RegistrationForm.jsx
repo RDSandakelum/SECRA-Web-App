@@ -1,5 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
+import { BiWorld } from "react-icons/bi";
+import { GrUserWorker } from "react-icons/Gr";
+
 import {
   FormErrorMessage,
   FormControl,
@@ -134,7 +137,7 @@ export default function RegistrationForm() {
             </InputGroup>
             <InputGroup>
               <InputLeftElement pointerEvents="none">
-                <AiOutlineUser color="#01033c" />
+                <GrUserWorker color="#01033C" />
               </InputLeftElement>
               <Input
                 id="designation"
@@ -148,7 +151,7 @@ export default function RegistrationForm() {
             </InputGroup>
             <InputGroup>
               <InputLeftElement pointerEvents="none">
-                <AiOutlineUser color="#01033c" />
+                <BiWorld color="#01033C" />
               </InputLeftElement>
               <Input
                 id="country"
