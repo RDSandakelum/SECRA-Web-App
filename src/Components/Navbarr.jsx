@@ -6,6 +6,7 @@ import { auth } from "../Config/firebase-config";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import LoginForm from "./LoginForm";
 import RegistrationForm from "./RegistrationForm";
+import Logo from "../assets/secra-logo.png";
 import {
   Box,
   Flex,
@@ -103,7 +104,7 @@ function Navbar() {
       >
         {/* Left-hand corner logo */}
         <Box>
-          <Image src="src\assets\SECRA_LOGO.png" alt="Logo" w="100px" />
+          <Image src={Logo} alt="Logo" w="100px" />
         </Box>
 
         {/* Hamburger menu for mobile */}
