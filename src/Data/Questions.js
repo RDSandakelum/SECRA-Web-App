@@ -921,7 +921,7 @@ const section_07 = [
   },
   {
     questionID: "07.10",
-    question: "Is the UoA active on social media?",
+    question: "Is the UoA active/visible on social media?",
     answers: [
       "Very active (often posts news and pictures, starts, and engages in discussions, answers questions etc.)",
       "Slightly active (same as above but to a lesser extent)",

@@ -30,7 +30,7 @@ export default function About() {
           alignItems="center"
         >
           <GridItem
-            display="flex"
+            display={{ base: "none", md: "flex" }}
             justifyContent={{ base: "center", md: "flex-start" }}
             alignItems={{ base: "center", md: "flex-start" }}
             // order={{ base: 2, md: 1 }}
@@ -38,14 +38,14 @@ export default function About() {
             <Box
               // display={{ base: "none", md: "inline-block" }}
               position="relative"
-              height={{ base: "200px", md: "275px", lg: "500px" }}
-              width={{ base: "230px", md: "350px", lg: "615px" }}
+              height={{ base: "200px", md: "275px", lg: "450px" }}
+              width={{ base: "230px", md: "350px", lg: "500px" }}
               backgroundColor="rgba(255, 255, 255, 1)"
             >
               <Box
                 position="relative"
-                height={{ base: "200px", md: "275px", lg: "500px" }}
-                width={{ base: "230px", md: "350px", lg: "615px" }}
+                height={{ base: "200px", md: "275px", lg: "450px" }}
+                width={{ base: "230px", md: "350px", lg: "500px" }}
                 backgroundImage={`url(${Group})`}
                 backgroundSize="cover"
                 backgroundPosition="center"
