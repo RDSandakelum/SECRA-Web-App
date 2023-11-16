@@ -53,6 +53,10 @@ function Navbar() {
       if (user) {
         setLog(
           <Box
+            p="4px"
+            borderBottom="2px"
+            borderColor="#01033C"
+            borderRadius="5px"
             onClick={async () => {
               await signOut(auth);
               window.location.reload();
@@ -67,12 +71,16 @@ function Navbar() {
             }}
             mx={4}
           >
-            <Text>Log Out</Text>
+            <Text color="#01033C">Log Out</Text>
           </Box>
         );
       } else {
         setLog(
           <Box
+            p="4px"
+            borderBottom="2px"
+            borderColor="#01033C"
+            borderRadius="5px"
             onClick={onLoginOpen}
             _hover={{
               color: "#01033c",
