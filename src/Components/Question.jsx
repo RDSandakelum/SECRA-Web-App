@@ -240,7 +240,6 @@ export default function Question(props) {
           {props.data?.dependingQuestions?.map((followUp, index) =>
             followUp?.answers ? (
               <>
-                {" "}
                 <Box
                   boxShadow="xl"
                   p="6"
@@ -301,7 +300,6 @@ export default function Question(props) {
               </>
             ) : (
               <>
-                {" "}
                 <Box
                   key={index}
                   boxShadow="xl"

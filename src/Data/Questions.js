@@ -2,51 +2,50 @@ const section_01 = [
   {
     questionID: "01.01",
     question:
-      "Who is overall responsible for working-life linkages at the UOA?",
+      "Who is the overall responsible for working-life linkages at the UOA?",
     answers: [
       "UOA director",
       "Specially appointed teacher or other staff",
-      "Other",
+      "Other, please specify below",
       "I do not know",
     ],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1,1.5,0.5]
+    scores: [2, 1, 1.5, 0.5],
   },
   {
     questionID: "01.02",
-    question: "Please elaborate.",
+    question: "Please specify.",
     dependOn: true,
     dependingQuestion: "01.01",
-    dependingAnswer: ["Other"],
-    score:[1],
+    dependingAnswer: ["Other, please specify below"],
+    score: [1],
   },
   {
     questionID: "01.03",
     question:
-      "What functions are involved in the planning of work-integrated learning at the UoA?",
+      "Which of the following are involved in the planning of work-integrated learning at the UoA?",
     answers: [
       "UOA director",
       "Teachers",
       "Students",
       "Alumni",
       "External contacts",
-      "Other",
+      "Other, please specify below",
     ],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1.5,0.5, 2,1,1,0.6],
-
+    scores: [1.5, 0.5, 2, 1, 1, 0.6],
   },
   {
     questionID: "01.04",
-    question: "Please elaborate.",
+    question: "Please specify.",
     dependOn: true,
     dependingQuestion: "01.03",
-    dependingAnswer: ["Other"],
-    score:[1],
+    dependingAnswer: ["Other, please specify below"],
+    score: [1],
   },
   {
     questionID: "01.05",
@@ -56,8 +55,7 @@ const section_01 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1.5,1,0.6],
-
+    scores: [1.5, 1, 0.6],
   },
   {
     questionID: "01.06",
@@ -65,21 +63,22 @@ const section_01 = [
     answers: [
       "Overall planning",
       "Resource sharing/pooling",
+      "Specific activities",
       "Evaluations",
-      "Other",
+      "Other, please elaborate below",
     ],
     dependOn: true,
     dependingQuestion: "01.05",
     dependingAnswer: ["Yes, occasionally"],
-    scores:[1.5,0.5,1,2],
+    scores: [1.5, 0.5, 1, 2, 0.5],
   },
   {
     questionID: "01.07",
     question: "Please elaborate.",
     dependOn: true,
     dependingQuestion: "01.06",
-    dependingAnswer: ["Other"],
-    scores:[1]
+    dependingAnswer: ["Other, please elaborate below"],
+    scores: [1],
   },
   {
     questionID: "01.08",
@@ -89,8 +88,7 @@ const section_01 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1.5,0.5,1],
-
+    scores: [1.5, 0.5, 1],
   },
   {
     questionID: "01.09",
@@ -100,8 +98,7 @@ const section_01 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1.5,1,2],
-
+    scores: [2, 1.5, 1, 2],
   },
   {
     questionID: "01.10",
@@ -111,8 +108,7 @@ const section_01 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[0.5,1],
-
+    scores: [0.5, 1],
   },
 ];
 
@@ -125,8 +121,7 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1,0.5,1]
-
+    scores: [2, 1, 0.5, 1],
   },
   {
     questionID: "02.02",
@@ -140,8 +135,7 @@ const section_02 = [
     dependOn: true,
     dependingQuestion: "02.01",
     dependingAnswer: ["Yes, several", "Yes, one"],
-    scores:[0.5,1,2,1]
-
+    scores: [0.5, 1, 2, 1],
   },
   {
     questionID: "02.03",
@@ -151,22 +145,20 @@ const section_02 = [
     dependOn: true,
     dependingQuestion: "02.01",
     dependingAnswer: ["Yes, several", "Yes, one"],
-    scores:[2,1]
-
+    scores: [2, 1],
   },
   {
     questionID: "02.04",
     question: "How often is the strategy revised?",
     answers: [
-      "Every year or more often",
-      "Every two years",
-      "Less than every second year",
+      "Every two years or more often",
+      "Every three to five years",
+      "Less than every five-year",
     ],
     dependOn: true,
     dependingQuestion: "02.03",
     dependingAnswer: ["Yes"],
-    scores:[2,0.7,1]
-
+    scores: [2, 0.7, 1],
   },
   {
     questionID: "02.05",
@@ -180,8 +172,7 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[0.7,1.5,0]
-
+    scores: [0.7, 1.5, 0],
   },
   {
     questionID: "02.06",
@@ -191,12 +182,11 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[0,0.7,1.5]
-
+    scores: [0, 0.7, 1.5],
   },
   {
     questionID: "02.07",
-    question: "Who is involved in the assessments?",
+    question: "Who are involved in the assessments?",
     answers: [
       "Students",
       "Teachers",
@@ -204,90 +194,85 @@ const section_02 = [
       "Director of Studies",
       "A UEC office",
       "External partners",
-      "Other",
+      "Other, please elaborate below",
     ],
     dependOn: true,
     dependingQuestion: "02.06",
     dependingAnswer: ["Yes, once a year or more often", "Yes, occasionally"],
-     scores:[2,1,0.5,1,2,1.5,0]
+    scores: [2, 1, 0.5, 1, 2, 1.5, 0],
   },
   {
     questionID: "02.08",
     question: "What other role(s) are involved?",
     dependOn: true,
     dependingQuestion: "02.07",
-    dependingAnswer: ["Other"],
-     scores:[1]
-
+    dependingAnswer: ["Other, please elaborate below"],
+    scores: [1],
   },
   {
     questionID: "02.09",
     question: "Who uses the assessment results?",
     answers: [
-      "Program advisory board",
+      "Curriculum Committee",
       "Instructor team",
       "Director of Studies",
-      "Management",
-      "Other",
+      "University Management",
+      "Other, please elaborate below",
     ],
     dependOn: true,
     dependingQuestion: "02.06",
     dependingAnswer: ["Yes, once a year or more often", "Yes, occasionally"],
-     scores:[1,1.2,2,1.5,0]
-
+    scores: [1, 1.2, 2, 1.5, 0],
   },
   {
     questionID: "02.10",
     question: "Please indicate what context(s) the results are used in.",
     dependOn: true,
     dependingQuestion: "02.09",
-    dependingAnswer: ["Other"],
-     scores:[1]
-
+    dependingAnswer: ["Other, please elaborate below"],
+    scores: [1],
   },
   {
     questionID: "02.11",
     question:
       "How does the UoA ensure that the number of work-integrated learning activities is appropriate?",
     answers: [
-      "Through advisory bodies",
+      "Through advisory/regulatory bodies",
       "Through dialogue with teachers",
       "Through dialogue with external partners",
       "Through dialogue with students",
       "In evaluations",
-      "In other ways",
+      "In other ways, please elaborate below",
     ],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1.5,0,1,1.2,3],
+    scores: [2, 1.5, 0, 1, 1.2, 3],
   },
   {
     questionID: "02.12",
     question: "Please elaborate.",
     dependOn: true,
     dependingQuestion: "02.11",
-    dependingAnswer: ["In other way"],
-    scores:[1],
-
+    dependingAnswer: ["In other ways, please elaborate below"],
+    scores: [1],
   },
   {
     questionID: "02.13",
     question:
       "How does the UoA ensure that the character of work-integrated learning activities is appropriate in terms of types, regularity, and variation?",
     answers: [
-      "Through advisory bodies",
+      "Through advisory/regulatory bodies",
       "Through dialogue with teachers",
       "Through dialogue with external partners",
       "In discussions with students",
       "Included in evaluations",
-      "Other way",
+      "Other way, please elaborate below",
     ],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1.5,0,1,1.2,3],
-
+    scores: [2, 1.5, 0, 1, 1.2, 3],
   },
   {
     questionID: "02.14",
@@ -295,8 +280,7 @@ const section_02 = [
     dependOn: true,
     dependingQuestion: "02.13",
     dependingAnswer: ["Other way"],
-    scores:[1],
-
+    scores: [1],
   },
   {
     questionID: "02.15",
@@ -306,8 +290,7 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[0,1,1.2,3],
-
+    scores: [0, 1, 1.2, 3],
   },
   {
     questionID: "02.16",
@@ -317,8 +300,7 @@ const section_02 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1.5,3,1],
-
+    scores: [2, 1.5, 3, 1],
   },
 ];
 
@@ -326,28 +308,26 @@ const section_03 = [
   {
     questionID: "03.01",
     question:
-      "Who provides ideas for work-integrated learning activities (e.g., ideas about activities, content or invitees)? Distribute 100% among the following:",
+      "Who provides ideas for work-integrated learning activities (e.g., ideas about activities, content or invitees)?",
     answers: [
       "Students",
       "UoA director",
-      "Teachers/staff",
+      "Teachers/Staff",
       "External contacts",
-      "Others",
+      "Others, please specify below",
     ],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1.5,0,3,1],
-
+    scores: [2, 1.5, 0, 3, 1],
   },
   {
     questionID: "03.02",
-    question: "Please elaborate.",
+    question: "Please specify.",
     dependOn: true,
     dependingQuestion: "03.01",
-    dependingAnswer: ["Others"],
-    scores:[1],
-
+    dependingAnswer: ["Others, please specify below"],
+    scores: [1],
   },
   {
     questionID: "03.03",
@@ -357,8 +337,7 @@ const section_03 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1,1.2,3],
-
+    scores: [1, 1.2, 3],
   },
   {
     questionID: "03.04",
@@ -368,33 +347,30 @@ const section_03 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1.5,3],
-
+    scores: [2, 1.5, 3],
   },
   {
     questionID: "03.05",
-    question:
-      "How do you work strategically to develop work-integrated learning?",
+    question: "How do you strategically develop work-integrated learning?",
     answers: [
-      "A standing group",
+      "An appointed person",
+      "In a standing group/team",
       "In dedicated projects",
-      "Through engagement days or similar",
-      "In other ways",
+      "In other ways, please elaborate below",
+      "N/A",
     ],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[0,1,0.5,3],
-
+    scores: [0, 1, 0.5, 3, 1],
   },
   {
     questionID: "03.06",
     question: "Please elaborate.",
     dependOn: true,
     dependingQuestion: "03.05",
-    dependingAnswer: ["In other ways"],
-    scores:[1],
-
+    dependingAnswer: ["In other ways, please elaborate below"],
+    scores: [1],
   },
   {
     questionID: "03.07",
@@ -404,28 +380,30 @@ const section_03 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1],
-
+    scores: [2, 1],
   },
   {
     questionID: "03.08",
     question:
-      "Who ensures that the work-integrated learning activities at the UoA are up to date with the latest developments in the industry?",
-    answers: ["Students", "Teachers/Staff", "UoA director", "Others"],
+      "Who ensures that the UoA's work-integrated learning activities are up to date with the latest developments in the industry?",
+    answers: [
+      "Students",
+      "Teachers/Staff",
+      "UoA director",
+      "Others, please specify below",
+    ],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1,1.5,0.5],
-
+    scores: [2, 1, 1.5, 0.5],
   },
   {
     questionID: "03.09",
-    question: "Please elaborate.",
+    question: "Please specify.",
     dependOn: true,
     dependingQuestion: "03.08",
-    dependingAnswer: ["Others"],
-    scores:[1],
-
+    dependingAnswer: ["Others, please specify below"],
+    scores: [1],
   },
   {
     questionID: "03.10",
@@ -440,22 +418,20 @@ const section_03 = [
       "Personal external contacts",
       "Alumni contacts",
       "Knowledge exchange with programmes at other universities",
-      "Other ways",
+      "Other ways, please elaborate below",
     ],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1,2,3,4,5,4,3,2,1],
-
+    scores: [1, 2, 3, 4, 5, 4, 3, 2, 1],
   },
   {
     questionID: "03.11",
     question: "Please elaborate.",
     dependOn: true,
     dependingQuestion: "03.10",
-    dependingAnswer: ["Other way"],
-    scores:[1],
-
+    dependingAnswer: ["Other ways, please elaborate below"],
+    scores: [1],
   },
 ];
 
@@ -468,8 +444,7 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1],
-
+    scores: [2, 1],
   },
   {
     questionID: "04.02",
@@ -478,8 +453,7 @@ const section_04 = [
     dependOn: true,
     dependingQuestion: "04.01",
     dependingAnswer: ["Yes"],
-    scores:[1,1.5,0.5],
-
+    scores: [1, 1.5, 0.5],
   },
   {
     questionID: "04.03",
@@ -492,8 +466,7 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1,1.5,0.5],
-
+    scores: [1, 1.5, 0.5],
   },
   {
     questionID: "04.04",
@@ -503,8 +476,7 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1,0.5],
-
+    scores: [2, 1, 0.5],
   },
   {
     questionID: "04.05",
@@ -513,8 +485,7 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1,1.5,0.5],
-
+    scores: [1, 1.5, 0.5],
   },
   {
     questionID: "04.06",
@@ -524,8 +495,7 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1],
-
+    scores: [2, 1],
   },
   {
     questionID: "04.07",
@@ -542,8 +512,7 @@ const section_04 = [
     dependOn: true,
     dependingQuestion: "04.06",
     dependingAnswer: ["Yes"],
-    scores:[2,1,0,1.5,0.5,1,0],
-
+    scores: [2, 1, 0, 1.5, 0.5, 1, 0],
   },
   {
     questionID: "04.08",
@@ -557,8 +526,7 @@ const section_04 = [
     dependOn: true,
     dependingQuestion: "04.06",
     dependingAnswer: ["Yes"],
-    scores:[2,1.5,0.5,1],
-
+    scores: [2, 1.5, 0.5, 1],
   },
   {
     questionID: "04.09",
@@ -568,8 +536,7 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1.5,0.5,0],
-
+    scores: [1.5, 0.5, 0],
   },
   {
     questionID: "04.10",
@@ -579,8 +546,7 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1.5,0.5,0],
-
+    scores: [1.5, 0.5, 0],
   },
   {
     questionID: "04.11",
@@ -595,8 +561,7 @@ const section_04 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1,1.5,0.5],
-
+    scores: [2, 1, 1.5, 0.5],
   },
 ];
 
@@ -609,8 +574,7 @@ const section_05 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1],
-
+    scores: [2, 1],
   },
   {
     questionID: "05.02",
@@ -622,22 +586,20 @@ const section_05 = [
       "By email",
       "At a specific website",
       "Social Media",
-      "Other",
+      "Other, please elaborate below",
     ],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1,1.5,0.5,1,0],
-
+    scores: [2, 1, 1.5, 0.5, 1, 0],
   },
   {
     questionID: "05.03",
     question: "Please elaborate.",
     dependOn: true,
     dependingQuestion: "05.02",
-    dependingAnswer: ["Other"],
-    scores:[1],
-
+    dependingAnswer: ["Other, please elaborate below"],
+    scores: [1],
   },
   {
     questionID: "05.04",
@@ -647,78 +609,64 @@ const section_05 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1,1.5],
-
+    scores: [2, 1, 1.5],
   },
   {
     questionID: "05.05",
-    question:
-      "How often do work-integrated learning activities require the students to prepare something?",
-    answers: ["Every time", "Often", "Rarely", "Never"],
-    dependOn: false,
-    dependingQuestion: null,
-    dependingAnswer: null,
-    scores:[2,1.5,1,0],
-
-  },
-  {
-    questionID: "05.06",
     question:
       "Are the individual work-integrated learning activities evaluated?",
     answers: ["Yes, always", "Yes, sometimes", "No"],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1,0.5],
-
+    scores: [2, 1, 0.5],
   },
   {
-    questionID: "05.07",
+    questionID: "05.06",
     question: "Who is involved in the evaluations?",
     answers: [
       "The person/persons who held the activity (e.g., a guest lecturer)",
       "The person/persons who organised the activity (e.g., a teacher)",
       "The students",
-      "Other",
+      "Other, please elaborate below",
     ],
     dependOn: true,
-    dependingQuestion: "05.06",
+    dependingQuestion: "05.05",
     dependingAnswer: ["Yes, always", "Yes, sometimes"],
-    scores:[2,1,1.5,0.5],
-
+    scores: [2, 1, 1.5, 0.5],
+  },
+  {
+    questionID: "05.07",
+    question: "Please elaborate.",
+    dependOn: true,
+    dependingQuestion: "05.06",
+    dependingAnswer: ["Other, please elaborate below"],
+    scores: [1],
   },
   {
     questionID: "05.08",
-    question: "Please elaborate.",
+    question: "What do the evaluations assess?",
+    answers: [
+      "The information before the activity",
+      "The  pedagogical quality of the activity",
+      "The  knowledge contribution of the activity",
+      "The  activity’s level of difficulty",
+      "The  activity’s relevance",
+      "The  coherence of the learning outcomes",
+      "Other, please elaborate below",
+    ],
     dependOn: true,
-    dependingQuestion: "05.07",
-    dependingAnswer: ["Other"],
-    scores:[1],
-
+    dependingQuestion: "05.05",
+    dependingAnswer: ["Yes, always", "Yes, sometimes"],
+    scores: [2, 1, 1.5, 0.5, 1, 1.5, 0],
   },
   {
     questionID: "05.09",
-    question: "What do the evaluations assess?",
-    answers: [
-      "The person/persons who held the activity (e.g., a guest lecturer)",
-      "The person/persons who organised the activity (e.g., a teacher)",
-      "The students",
-      "Other",
-    ],
-    dependOn: true,
-    dependingQuestion: "05.06",
-    dependingAnswer: ["Yes, always", "Yes, sometimes"],
-    scores:[2,1,1.5,0.5],
-
-  },
-  {
-    questionID: "05.10",
     question: "Please elaborate.",
     dependOn: true,
-    dependingQuestion: "05.09",
-    dependingAnswer: ["Other"],
-    scores:[1],
-
+    dependingQuestion: "05.08",
+    dependingAnswer: ["Other, please elaborate below"],
+    scores: [1],
   },
 ];
 
@@ -730,14 +678,13 @@ const section_06 = [
     answers: [
       "Yes, at the university/college level",
       "Yes, at the faculty/school level",
-      "Yes, at the department level",
+      "Yes, at a more local level than the above, e.g. department level",
       "No",
     ],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1,1.5,0.5],
-
+    scores: [2, 1, 1.5, 0.5],
   },
   {
     questionID: "06.02",
@@ -748,10 +695,9 @@ const section_06 = [
     dependingAnswer: [
       "Yes, at the university/college level",
       "Yes, at the faculty/school level",
-      "Yes, at the department level",
+      "Yes, at a more local level than the above, e.g. department level",
     ],
-    scores:[2,1],
-
+    scores: [2, 1],
   },
   {
     questionID: "06.03",
@@ -761,8 +707,7 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1,0],
-
+    scores: [2, 1, 0],
   },
   {
     questionID: "06.04",
@@ -776,8 +721,7 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1,1,1.5],
-
+    scores: [1, 1, 1.5],
   },
   {
     questionID: "06.05",
@@ -792,8 +736,7 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[0.5,1,1.5,2],
-
+    scores: [0.5, 1, 1.5, 2],
   },
   {
     questionID: "06.06",
@@ -803,8 +746,7 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1.5,0],
-
+    scores: [2, 1.5, 0],
   },
   {
     questionID: "06.07",
@@ -820,8 +762,7 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1,2,3,4,0],
-
+    scores: [1, 2, 3, 4, 0],
   },
   {
     questionID: "06.08",
@@ -837,8 +778,7 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[4,3,2,1,0],
-
+    scores: [4, 3, 2, 1, 0],
   },
   {
     questionID: "06.09",
@@ -854,8 +794,7 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1,1.5,0.5,0],
-
+    scores: [2, 1, 1.5, 0.5, 0],
   },
   {
     questionID: "06.10",
@@ -870,8 +809,7 @@ const section_06 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1,2,1.5,0.5],
-
+    scores: [1, 2, 1.5, 0.5],
   },
 ];
 
@@ -884,8 +822,7 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1,1,1.5,0.5],
-
+    scores: [1, 1, 1.5, 0.5],
   },
   {
     questionID: "07.02",
@@ -895,8 +832,7 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1.5,1,0.5],
-
+    scores: [2, 1.5, 1, 0.5],
   },
   {
     questionID: "07.03",
@@ -906,8 +842,7 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1,1.5,1],
-    
+    scores: [1, 1.5, 1],
   },
   {
     questionID: "07.04",
@@ -917,23 +852,21 @@ const section_07 = [
       "Yes, students",
       "Yes, teachers/staff",
       "Yes, the UoA director",
-      "Yes, someone else",
+      "Yes, someone else,Please specify below",
       "No",
     ],
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1.5,1,0.5,0],
-
+    scores: [2, 1.5, 1, 0.5, 0],
   },
   {
     questionID: "07.05",
-    question: "Please elaborate.",
+    question: "Please specify.",
     dependOn: true,
     dependingQuestion: "07.04",
-    dependingAnswer: ["Yes, someone else"],
-    scores:[1],
-
+    dependingAnswer: ["Yes, someone else,Please specify below"],
+    scores: [1],
   },
   {
     questionID: "07.06",
@@ -946,7 +879,7 @@ const section_07 = [
       "Personal industry contacts",
       "Alumni contacts",
       "Talking to corresponding program staff at other universities",
-      "In other ways",
+      "In other ways, please elaborate below",
     ],
     dependOn: true,
     dependingQuestion: "07.04",
@@ -954,19 +887,17 @@ const section_07 = [
       "Yes, students",
       "Yes, teachers/staff",
       "Yes, the UoA director",
-      "Yes, someone else",
+      "Yes, someone else,Please specify below",
     ],
-    scores:[2,1.5,1,0.5,1.5,1,0.5,0],
-
+    scores: [2, 1.5, 1, 0.5, 1.5, 1, 0.5, 0],
   },
   {
     questionID: "07.07",
     question: "Please elaborate.",
     dependOn: true,
     dependingQuestion: "07.06",
-    dependingAnswer: ["In other ways"],
-        scores:[1],
-
+    dependingAnswer: ["In other ways, please elaborate below"],
+    scores: [1],
   },
   {
     questionID: "07.08",
@@ -976,8 +907,7 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[0.5,1.5,1],
-
+    scores: [0.5, 1.5, 1],
   },
   {
     questionID: "07.09",
@@ -987,8 +917,7 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1.5,1],
-
+    scores: [2, 1.5, 1],
   },
   {
     questionID: "07.10",
@@ -1002,8 +931,7 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[1,0.5,1.5,1],
-
+    scores: [1, 0.5, 1.5, 1],
   },
   {
     questionID: "07.11",
@@ -1013,10 +941,8 @@ const section_07 = [
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
-    scores:[2,1.5,1,0.5],
+    scores: [2, 1.5, 1, 0.5],
   },
-    
-
 ];
 
 export {

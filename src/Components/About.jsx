@@ -24,7 +24,7 @@ export default function About() {
       >
         <Grid
           templateColumns={{ base: "1fr", md: "1fr 1fr" }}
-          gap={6}
+          gap={{ base: 0, md: 6 }}
           w="100%"
           h="100%"
           alignItems="center"
@@ -33,19 +33,19 @@ export default function About() {
             display="flex"
             justifyContent={{ base: "center", md: "flex-start" }}
             alignItems={{ base: "center", md: "flex-start" }}
-            order={{ base: 2, md: 1 }}
+            // order={{ base: 2, md: 1 }}
           >
             <Box
-              display={{ base: "none", md: "inline-block" }}
+              // display={{ base: "none", md: "inline-block" }}
               position="relative"
-              height={{ base: "250px", md: "500px" }}
-              width={{ base: "250px", md: "615px" }}
+              height={{ base: "200px", md: "275px", lg: "500px" }}
+              width={{ base: "230px", md: "350px", lg: "615px" }}
               backgroundColor="rgba(255, 255, 255, 1)"
             >
               <Box
                 position="relative"
-                height={{ base: "250px", md: "500px" }}
-                width={{ base: "250px", md: "615px" }}
+                height={{ base: "200px", md: "275px", lg: "500px" }}
+                width={{ base: "230px", md: "350px", lg: "615px" }}
                 backgroundImage={`url(${Group})`}
                 backgroundSize="cover"
                 backgroundPosition="center"
@@ -58,10 +58,10 @@ export default function About() {
           <GridItem
             w="100%"
             display="flex"
-            justifyContent={{ base: "center", md: "flex-start" }}
-            alignItems={{ base: "center", md: "flex-start" }}
+            justifyContent={{ base: "center", lg: "flex-start" }}
+            alignItems={{ base: "center", lg: "flex-start" }}
             flexDirection="column"
-            order={{ base: 1, md: 2 }}
+            // order={{ base: 1, md: 2 }}
           >
             <Text
               fontWeight="bold"
