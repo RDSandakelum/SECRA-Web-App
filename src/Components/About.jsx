@@ -84,7 +84,6 @@ export default function About() {
                 _hover={{ bg: null }}
                 onClick={() => {
                   navigate("/about-secra");
-                  console.log("clicked");
                 }}
                 color="white"
                 bgGradient="linear(to-b, #01033c 66.66%, #232484)"

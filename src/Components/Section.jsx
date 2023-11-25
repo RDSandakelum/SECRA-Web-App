@@ -12,7 +12,6 @@ export default function Section(props) {
       {props.answers.questions.map((question, idx) => (
         <>
           <Question
-            key={idx}
             questionIndex={idx}
             data={question}
             providedAnswers={question.providedAnswers}

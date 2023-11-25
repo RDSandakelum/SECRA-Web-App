@@ -2,9 +2,13 @@ import React from "react";
 import { Box, Heading, Center, Divider, Text, Flex } from "@chakra-ui/react";
 import Navbarr from "./Navbarr";
 import PrevResponses from "./PrevResponses";
-import { PrevResponseData } from "../Data/PrevResponses";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function PrevResponsesPage() {
+  const location = useLocation();
+  const [prevResponses, setPrevResponses] = useState(location.state);
+
   return (
     <Box>
       <Navbarr />
@@ -17,15 +21,21 @@ export default function PrevResponsesPage() {
         </Center>
         <Center>
           <Box p="6" rounded="md" bg="white" w="70%">
-            <Flex justify="space-between" alignItems="center">
+            <Flex
+              display={{ base: "none", md: "flex" }}
+              justify="space-between"
+              alignItems="center"
+            >
               <Text fontWeight="bold">Date</Text>
-              <Text fontWeight="bold">Score</Text>
+              <Text ml="10rem" fontWeight="bold">
+                Score
+              </Text>
               <Text fontWeight="bold">Summary</Text>
             </Flex>
           </Box>
         </Center>
-        {PrevResponseData.map((data) => {
-          return <PrevResponses data={data} />;
+        {prevResponses.map((data, idx) => {
+          return <PrevResponses key={idx} data={data} />;
         })}
       </Box>
     </Box>

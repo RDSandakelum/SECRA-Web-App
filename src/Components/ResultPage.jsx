@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Navbarr from "./Navbarr";
 import Chart from "./Chart";
+import html2pdf from "html2pdf.js";
 import {
   Box,
   Heading,
@@ -14,26 +15,46 @@ import Table from "./ResultTable";
 import Footer from "./Footer";
 import { useNavigate, useLocation } from "react-router-dom";
 import { getSectionName } from "../functions/sectionRenaming";
-import { auth } from "../Config/firebase-config";
+import { auth, db } from "../Config/firebase-config";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 export default function ResultPage() {
   const toast = useToast();
-  const navigateToPrevResults = () => {
-    // const user = auth?.currentUser;
-    // if (user) {
-    //   navigateTo("/prev-results");
-    // } else {
-    //   toast({
-    //     title: "Please Log In",
-    //     description: "Log in to continue...",
-    //     status: "info",
-    //     duration: 2000,
-    //     isClosable: true,
-    //   });
-    // }
+  const compareDates = (a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+
+    // Compare dates in descending order
+    return dateB - dateA;
+  };
+  const navigateToPrevResults = async () => {
+    const user = auth?.currentUser;
+    const prevResponses = [];
+    if (user) {
+      const q = query(
+        collection(db, "userAnswers"),
+        where("userId", "==", auth.currentUser.uid)
+      );
+
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        prevResponses.push(doc.data());
+      });
+      const sortedResponses = prevResponses.sort(compareDates);
+      navigateTo("/prev-results", { state: sortedResponses });
+    } else {
+      toast({
+        title: "Please Log In",
+        description: "Log in to continue...",
+        status: "info",
+        duration: 2000,
+        isClosable: true,
+      });
+    }
   };
   const location = useLocation();
-  const [userAnswers, setUserAnswers] = useState(location.state);
+  const prevData = location.state;
+  const [userAnswers, setUserAnswers] = useState(prevData.data);
 
   const navigateTo = useNavigate();
 
@@ -64,23 +85,38 @@ export default function ResultPage() {
     setTableData(tableData);
     setTotalScore(total);
   }, [userAnswers]);
+  const componentRef = useRef();
+  const saveToPDF = () => {
+    const input = componentRef.current;
+
+    if (input) {
+      const pdfOptions = {
+        filename: prevData.date,
+      };
+      html2pdf(input, pdfOptions);
+    } else {
+      console.error("Component reference not found.");
+    }
+  };
 
   return (
     <Box>
       <Navbarr />
-      <Box mt="50px">
+      <Box ref={componentRef}>
+        <Box mt="50px">
+          <Center>
+            <Heading mt="1rem" ml="1rem">
+              UEC Compass Questionnaire - Responses
+            </Heading>
+          </Center>
+        </Box>
         <Center>
-          <Heading mt="1rem" ml="1rem">
-            UEC Compass Questionnaire - Responses
-          </Heading>
+          <Chart providedLabels={providedLabels} labelData={labelData} />
+        </Center>
+        <Center>
+          <Table tableData={tableData} totalScore={totalScore} />
         </Center>
       </Box>
-      <Center>
-        <Chart providedLabels={providedLabels} labelData={labelData} />
-      </Center>
-      <Center>
-        <Table tableData={tableData} totalScore={totalScore} />
-      </Center>
       <Center>
         <Button
           mt={4}
@@ -106,6 +142,7 @@ export default function ResultPage() {
               textDecoration: "underline",
               cursor: "pointer",
             }}
+            onClick={saveToPDF}
           >
             Print This Response
           </Text>

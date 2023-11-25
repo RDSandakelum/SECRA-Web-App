@@ -8,7 +8,6 @@ export default function Question(props) {
 
   function findDependingQuestions(providedAnswers, questionId) {
     const dependingQuestions = [];
-    console.log(providedAnswers);
     const sectionData = props.sectionData;
     sectionData.forEach((question) => {
       if (
@@ -69,8 +68,6 @@ export default function Question(props) {
         let currentSectionData =
           prevAns[currentSection].questions[props.questionIndex];
         dependingQuestions.forEach((question) => {
-          console.log(currentSectionData.dependingQuestions, question);
-
           // console.log(
           //   currentSectionData.dependingQuestions.filter(
           //     (dependingQ) => dependingQ.questionID !== question.questionID
@@ -124,7 +121,7 @@ export default function Question(props) {
             )
         );
 
-        console.log("subdepquestions", subDependingQuestions);
+        // console.log("subdepquestions", subDependingQuestions);
 
         let i = 0;
         while (i < subDependingQuestions.length) {
@@ -155,7 +152,7 @@ export default function Question(props) {
         let subQuestionProvidedAnswers =
           prev[currentSection].questions[props.questionIndex].providedAnswers;
 
-        console.log(subQuestionProvidedAnswers);
+        // console.log(subQuestionProvidedAnswers);
 
         let subDependingQuestions = [];
 
@@ -185,7 +182,7 @@ export default function Question(props) {
     setCurrentAnsweredID("");
   };
 
-  console.log(currentAnsweredID);
+  // console.log(currentAnsweredID);
 
   return (
     <>
@@ -311,7 +308,7 @@ export default function Question(props) {
                 >
                   <Text fontWeight="medium">{followUp.question}</Text>
                   <Box width={{ base: "100%", md: "60%" }}>
-                    {console.log(followUp.providedAnswers)}
+                    {/* {console.log(followUp.providedAnswers)} */}
                     <input
                       id={followUp.questionID}
                       value={followUp.providedAnswers[0]}

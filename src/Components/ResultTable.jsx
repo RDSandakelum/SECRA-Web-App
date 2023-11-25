@@ -27,9 +27,9 @@ export default function ResultTable({ tableData, totalScore }) {
           </Tr>
         </Thead>
         <Tbody>
-          {tableData.map((data) => {
+          {tableData.map((data, idx) => {
             return (
-              <Tr>
+              <Tr key={idx}>
                 <Td textAlign="center">{data.section}</Td>
                 <Td textAlign="center">{data.score}</Td>
               </Tr>
