@@ -24,7 +24,7 @@ const boxStyles = {
   position: "sticky",
   height: "100vh",
   justifyContent: "center",
-  minWidth: "10vw",
+  minWidth: "15vw",
 };
 
 const itemStyle = {
@@ -68,7 +68,7 @@ const MenuBar = ({ sections, currentSection, setCurrentSection }) => {
             marginBottom={6}
           >
             <Center>
-              <AiOutlineHome style={{ fontSize: "1.6rem" }} />
+              {/* <AiOutlineHome style={{ fontSize: "1.6rem" }} /> */}
             </Center>
           </Box>
 
@@ -78,7 +78,7 @@ const MenuBar = ({ sections, currentSection, setCurrentSection }) => {
                 _hover={itemStyle}
                 key={section}
                 onClick={() => setCurrentSection(index)}
-                backgroundColor={currentSection === index ? "blue.200" : ""}
+                borderBottom={currentSection === index ? "2px solid white" : ""}
               >
                 {section}
               </ListItem>

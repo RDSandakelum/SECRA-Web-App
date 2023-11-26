@@ -118,6 +118,7 @@ export default function AboutMain() {
       <Center>
         <SecraInfo />
       </Center>
+      <br />
       <Footer />
     </Box>
   );

@@ -17,13 +17,13 @@ import { doc, setDoc, addDoc, collection } from "firebase/firestore";
 import { useNavigate, useLocation } from "react-router-dom";
 export default function QuestionsPage() {
   const sections = [
-    "Section 1",
-    "Section 2",
-    "Section 3",
-    "Section 4",
-    "Section 5",
-    "Section 6",
-    "Section 7",
+    "Organisation",
+    "Quality Assurance",
+    "Development",
+    "Integration",
+    "Activities",
+    "Institutional Support",
+    "External Environment",
   ];
 
   const navigateTo = useNavigate();

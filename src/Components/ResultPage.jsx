@@ -92,6 +92,8 @@ export default function ResultPage() {
     if (input) {
       const pdfOptions = {
         filename: prevData.date,
+        onePage: true,
+        format: "A4",
       };
       html2pdf(input, pdfOptions);
     } else {
