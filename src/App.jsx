@@ -11,6 +11,7 @@ import AboutMain from "./Components/AboutMain";
 
 import { atom } from "jotai";
 import ResponsePage from "./Components/ResponsePage";
+import Landing from "./Components/Landing";
 
 export const answersAtom = atom({});
 
@@ -18,7 +19,8 @@ function App() {
   return (
     <Routes>
       <Route index element={<HomePage />} />
-      <Route path="/survey" element={<QuestionsPage />} />
+      <Route path="/survey" element={<QuestionsPage/>} />
+      <Route path="/landing" element={<Landing/>} />
       <Route path="/result" element={<ResultPage />} />
       <Route path="/about-secra" element={<AboutMain />} />
       <Route path="/*" element={<NotFound />} />

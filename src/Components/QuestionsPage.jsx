@@ -1,4 +1,4 @@
-import { Flex, Button, Center } from "@chakra-ui/react";
+import { Flex, Button, Center, Box } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import QuestionMenuBar from "./QuestionMenuBar";
 import Footer from "./Footer";
@@ -26,10 +26,11 @@ export default function QuestionsPage() {
     "External Environment",
   ];
 
+  const location2 = useLocation();
+  const uniInfo = location2.state
   const navigateTo = useNavigate();
-
   const [currentSection, setCurrentSection] = useState(0);
-
+  console.log(uniInfo)
   const [answers, setAnswers] = useState(
     location.state
       ? location.state
@@ -103,6 +104,7 @@ export default function QuestionsPage() {
       const date = new Date();
       const userId = auth.currentUser.uid;
       const dataToSave = {
+        uniInfo: uniInfo,
         score: total,
         userId: userId,
         date: date.toString(),
@@ -135,6 +137,10 @@ export default function QuestionsPage() {
     setCurrentSection((prevSection) => prevSection + 1);
     window.scrollTo(0, 0);
   };
+
+  const homeClick = () => {
+    navigateTo("/")
+  }
 
   const handleSubmitAnswers = () => {
     let userAnswers = answers.map((item) => {
@@ -184,7 +190,7 @@ export default function QuestionsPage() {
     saveData(userAnswers);
     let date = new Date();
     date = date.toString();
-    userAnswers = { data: userAnswers, date: date };
+    userAnswers = { uniInfo: uniInfo, data: userAnswers, date: date };
     navigateTo("/result", { state: userAnswers });
   };
 
@@ -268,6 +274,19 @@ export default function QuestionsPage() {
             />
           )}
           <Center>
+            <Box display='flex' w='50vw' justifyContent='space-between'>
+              <Button
+              mt="2rem"
+              mb="5rem"
+              _hover={{ bg: null }}
+              color="white"
+              bg="#01033C"
+              type="submit"
+              minW="200px"
+              onClick={homeClick}
+              >
+                Home
+              </Button>
             <Button
               mt="2rem"
               mb="5rem"
@@ -282,6 +301,7 @@ export default function QuestionsPage() {
             >
               {currentSection === 6 ? "Submit Answers" : "Next"}
             </Button>
+            </Box>
           </Center>
         </Flex>
       </Flex>

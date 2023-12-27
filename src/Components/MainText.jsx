@@ -38,7 +38,7 @@ export default function MainText(props) {
         mt="26px"
         _hover={{ bg: null }}
         onClick={() => {
-          navigate("/survey");
+          navigate("/landing");
           console.log("clicked");
         }}
         color="white"

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { BiWorld } from "react-icons/bi";
-import { GrUserWorker } from "react-icons/Gr";
+import { GrUserWorker } from "react-icons/gr";
 
 import {
   FormErrorMessage,
