@@ -11,6 +11,7 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerBody,
+  Tooltip
 } from "@chakra-ui/react";
 import { AiOutlineHome } from "react-icons/ai";
 import { HamburgerIcon } from "@chakra-ui/icons";
@@ -72,7 +73,8 @@ const MenuBar = ({ sections, currentSection, setCurrentSection }) => {
             </Center>
           </Box>
 
-          <List spacing={3}>
+          <List display='flex' flexDirection='column' justifyContent='space-between' h='100%'  spacing={3}>
+            <Box>
             {sections.map((section, index) => (
               <ListItem
                 _hover={itemStyle}
@@ -83,6 +85,24 @@ const MenuBar = ({ sections, currentSection, setCurrentSection }) => {
                 {section}
               </ListItem>
             ))}
+            </Box>
+            <Box>
+            <ListItem color='yellow.100' mb='1rem'>
+              <Tooltip hasArrow label='While the UoA is commonly a degree program, it can also be extended to include larger organizational structures like departments or faculties. The principle guiding the selection of a UoA is specificity; the more precise and well-defined the UoA, the more targeted and relevant the assessment outcomes will be.' placement='auto-start'>
+              UoA
+              </Tooltip>
+            </ListItem>
+            <ListItem color='yellow.100' mb='1rem'>
+              <Tooltip hasArrow label='University-Enterprise Collaboration: University Enterprise Collaboration (UEC) refers to the strategic partnership and cooperative engagement between academic institutions and business enterprises.' placement='auto-start'>
+              UEC
+              </Tooltip>
+            </ListItem>
+            <ListItem color='yellow.100'>
+              <Tooltip hasArrow label='An educational approach that integrates academic learning with practical application in a workplace setting, aligning closely with the needs of the corporate sector. ' placement='auto-start'>
+              Work Integrated Learning
+              </Tooltip>
+            </ListItem>
+            </Box>
           </List>
         </Flex>
 

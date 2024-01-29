@@ -8,7 +8,7 @@ export default function PrevResponses(props) {
 
   const handleSummary = () => {
     const userProvidedData = JSON.parse(props.data.user_answers);
-    const dataToSend = { data: userProvidedData, date: props.data.date };
+    const dataToSend = { data: userProvidedData, date: props.data.date , uniInfo: props.data.uniInfo};
     navigateTo("/result", { state: dataToSend });
   };
 
