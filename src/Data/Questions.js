@@ -2,9 +2,9 @@ const section_01 = [
   {
     questionID: "01.01",
     question:
-      "Who is the overall responsible for working-life linkages at the UOA?",
+      "Who is the overall responsible for working-life linkages at the UoA?",
     answers: [
-      "UOA director",
+      "UoA director",
       "Specially appointed teacher or other staff",
       "Other, please specify below",
       "I do not know",
@@ -27,7 +27,7 @@ const section_01 = [
     question:
       "Which of the following are involved in the planning of work-integrated learning at the UoA?",
     answers: [
-      "UOA director",
+      "UoA director",
       "Teachers",
       "Students",
       "Alumni",
@@ -412,7 +412,7 @@ const section_03 = [
     answers: [
       "General news coverage",
       "Industry-specific news coverage (e.g., websites and industry magazines)",
-      "External representation at the UOA",
+      "External representation at the UoA",
       "Participation in professional fairs/conferences",
       "Staff actively participate in industry associations/networks",
       "Personal external contacts",
