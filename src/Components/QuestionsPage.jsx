@@ -308,7 +308,7 @@ export default function QuestionsPage() {
                             minW="200px"
                             onClick={() => {
                                 if (checkRequired(answers, currentSection)) {
-                                    alert("Please fill Required messages");
+                                    alert("Please Answer All the Questions");
                                 } else {
                                     currentSection !== 6
                                         ? handleNextClick()
