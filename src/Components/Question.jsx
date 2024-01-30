@@ -445,7 +445,6 @@ export default function Question(props) {
                             props.setAnswers((prev) => {
                               prev[currentSection].questions.map((que) => {
                                 if (que.questionID === followUp.questionID) {
-                                  que.providedAnswers = [];
                                   que.providedAnswers.push(e.target.value);
                                 }
                               });
