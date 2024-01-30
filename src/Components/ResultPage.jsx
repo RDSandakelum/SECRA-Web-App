@@ -54,7 +54,7 @@ export default function ResultPage() {
   };
   const location = useLocation();
   const prevData = location.state;
-  const [userAnswers, setUserAnswers] = useState(location.state);
+  const [userAnswers, setUserAnswers] = useState(prevData.data);
   let inst = "";
   let unitOfAssessment = ""
 

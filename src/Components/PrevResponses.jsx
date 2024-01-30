@@ -4,6 +4,20 @@ import { useNavigate } from "react-router-dom";
 import { userProvidedData } from "../Data/Results";
 
 export default function PrevResponses(props) {
+  let date = ''
+  if (props.data.date.seconds){
+
+    const seconds = props.data.date.seconds;
+    const nanoseconds = props.data.date.nanoseconds;
+    
+    // Convert nanoseconds to milliseconds and add to seconds
+    const milliseconds = seconds * 1000 + nanoseconds / 1e6;
+    const newDate = new Date(milliseconds);
+    date = newDate.toString();
+  }
+  else{
+    date = props.data.date
+  }
   const navigateTo = useNavigate();
 
   const handleSummary = () => {
@@ -27,7 +41,7 @@ export default function PrevResponses(props) {
           justify="space-between"
           alignItems="center"
         >
-          <Text>{props.data.date.substring(4, 33)}</Text>
+          <Text>{date.substring(4, 33)}</Text>
           <Text>{props.data.score}</Text>
           <Button
             size="sm"
@@ -45,7 +59,7 @@ export default function PrevResponses(props) {
           alignItems="center"
           direction="column"
         >
-          <Text>{props.data.date.substring(4, 33)}</Text>
+          <Text>{date.substring(4, 33)}</Text>
           <br />
           <Text>Score : {props.data.score}</Text>
           <br />

@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 export default function PrevResponsesPage() {
   const location = useLocation();
   const [prevResponses, setPrevResponses] = useState(location.state);
-
+  console.log(prevResponses)
   return (
     <Box>
       <Navbarr />

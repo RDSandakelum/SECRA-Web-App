@@ -30,6 +30,9 @@ export default function QuestionsPage() {
   const toast = useToast()
   const [currentSection, setCurrentSection] = useState(0);
 
+  const location2 = useLocation();
+  const uniInfo = location2.state
+
   const [answers, setAnswers] = useState(
     location.state
       ? location.state
@@ -105,6 +108,7 @@ export default function QuestionsPage() {
         score: total,
         userId: userId,
         date: new Date(),
+        uniInfo: uniInfo,
         user_answers: JSON.stringify(userAnswers),
       };
     //   console.log(dataToSave, userAnswers);
@@ -142,7 +146,7 @@ export default function QuestionsPage() {
   }
 
   const handleSubmitAnswers = () => {
-    const userAnswers = answers.map((item) => {
+    let userAnswers = answers.map((item) => {
       const { title, questions } = item;
       const extractedQuestions = questions.map((questionItem) => ({
         questionID: questionItem.questionID,
@@ -188,6 +192,9 @@ export default function QuestionsPage() {
     });
     // console.log(userAnswers);
     saveData(userAnswers);
+    let date = new Date();
+    date = date.toString();
+    userAnswers = { uniInfo: uniInfo, data: userAnswers, date: date };
     navigateTo("/result", { state: userAnswers });
   };
 
