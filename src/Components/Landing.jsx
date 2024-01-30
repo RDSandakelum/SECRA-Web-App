@@ -1,4 +1,4 @@
-import { Box, FormControl, Center, Heading, Stack, Input, Button } from '@chakra-ui/react'
+import { Box, FormControl, Center, Heading, Stack, Input, Button, useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -9,9 +9,21 @@ export default function Landing() {
     Institution: ''
 })
 
+  const toast = useToast()
+
   const navigateTo = useNavigate()
   const navigate = ()=>{
-    navigateTo('/survey', {state: uniInfo})
+    if (uniInfo.Institution !== '' && uniInfo.unitOfAssessment !== ''){
+      navigateTo('/survey', {state: uniInfo})
+    } 
+    else{
+      toast({
+        title: "Please provide required information",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+      });
+    }
   }
 
   const handleChangeUoA = (event)=>{

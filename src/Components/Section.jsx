@@ -20,6 +20,7 @@ export default function Section(props) {
                         setAnswers={props.setAnswers}
                         sectionData={props.answers.questions}
                         currentSection={props.currentSection}
+                        checkBox={question.checkBox}
                     />
                     <br />
                 </div>
