@@ -11,7 +11,9 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerBody,
-  Tooltip
+  Tooltip,
+  Text,
+  Divider
 } from "@chakra-ui/react";
 import { AiOutlineHome } from "react-icons/ai";
 import { HamburgerIcon } from "@chakra-ui/icons";
@@ -77,6 +79,7 @@ const MenuBar = ({ sections, currentSection, setCurrentSection }) => {
             <Box>
             {sections.map((section, index) => (
               <ListItem
+              mb = '1rem'
                 _hover={itemStyle}
                 key={section}
                 onClick={() => setCurrentSection(index)}
@@ -87,17 +90,20 @@ const MenuBar = ({ sections, currentSection, setCurrentSection }) => {
             ))}
             </Box>
             <Box>
-            <ListItem color='yellow.100' mb='1rem'>
+              <Text mt='5rem'  fontSize='1.2rem'>Glossary of Terms</Text>
+              <Divider/>  
+              <br></br>
+            <ListItem color='purple.100' mb='1rem'>
               <Tooltip hasArrow label='While the UoA is commonly a degree program, it can also be extended to include larger organizational structures like departments or faculties. The principle guiding the selection of a UoA is specificity; the more precise and well-defined the UoA, the more targeted and relevant the assessment outcomes will be.' placement='auto-start'>
               UoA
               </Tooltip>
             </ListItem>
-            <ListItem color='yellow.100' mb='1rem'>
+            <ListItem color='purple.100' mb='1rem'>
               <Tooltip hasArrow label='University-Enterprise Collaboration: University Enterprise Collaboration (UEC) refers to the strategic partnership and cooperative engagement between academic institutions and business enterprises.' placement='auto-start'>
               UEC
               </Tooltip>
             </ListItem>
-            <ListItem color='yellow.100'>
+            <ListItem color='purple.100'>
               <Tooltip hasArrow label='An educational approach that integrates academic learning with practical application in a workplace setting, aligning closely with the needs of the corporate sector. ' placement='auto-start'>
               Work Integrated Learning
               </Tooltip>
@@ -127,6 +133,7 @@ const MenuBar = ({ sections, currentSection, setCurrentSection }) => {
                 <List spacing={3}>
                   {sections.map((section, index) => (
                     <ListItem
+                      mb = '1rem'
                       _hover={itemStyle}
                       key={section}
                       onClick={() => setCurrentSection(index)}
