@@ -74,7 +74,7 @@ const MenuBar = ({ sections, currentSection, setCurrentSection }) => {
               {/* <AiOutlineHome style={{ fontSize: "1.6rem" }} /> */}
             </Center>
           </Box>
-
+          <Text mb={6} fontSize={20} >Survey Structure</Text>
           <List display='flex' flexDirection='column' justifyContent='space-between' h='100%'  spacing={3}>
             <Box>
             {sections.map((section, index) => (
@@ -94,17 +94,12 @@ const MenuBar = ({ sections, currentSection, setCurrentSection }) => {
               <Divider/>  
               <br></br>
             <ListItem color='purple.100' mb='1rem'>
-              <Tooltip hasArrow label='While the UoA is commonly a degree program, it can also be extended to include larger organizational structures like departments or faculties. The principle guiding the selection of a UoA is specificity; the more precise and well-defined the UoA, the more targeted and relevant the assessment outcomes will be.' placement='auto-start'>
-              UoA
-              </Tooltip>
-            </ListItem>
-            <ListItem color='purple.100' mb='1rem'>
-              <Tooltip hasArrow label='University-Enterprise Collaboration: University Enterprise Collaboration (UEC) refers to the strategic partnership and cooperative engagement between academic institutions and business enterprises.' placement='auto-start'>
-              UEC
+              <Tooltip hasArrow label='While the Unit of Analysis(UOA) is commonly a degree program, it can also be extended to include larger organizational structures like departments or faculties. The principle guiding the selection of a Unit of Analysis(UOA) is specificity; the more precise and well-defined the Unit of Analysis(UOA), the more targeted and relevant the assessment outcomes will be.' placement='auto-start'>
+              Unit of Analysis
               </Tooltip>
             </ListItem>
             <ListItem color='purple.100'>
-              <Tooltip hasArrow label='An educational approach that integrates academic learning with practical application in a workplace setting, aligning closely with the needs of the corporate sector. ' placement='auto-start'>
+              <Tooltip hasArrow label="‘Work-Integrated Learning is an educational approach involving three parties – the student, the educational institution, and an external stakeholder – consisting of authentic work-focused experiences as an intentional component of the curriculum. Students learn through active engagement in purposeful work tasks, which enable the integration of theory with meaningful practice that is relevant to the students' discipline of study and/or professional development. Zegwaard, K. E., Pretti, T. J., Rowe, A. D., & Ferns, S. J. (2023, p. 38). ‘Defining work-integrated learning.’ In K. E. Zegwaard & T. J. Pretti (Eds.), The Routledge international handbook of work-integrated learning (3rd ed., pp. 29-48). Routledge.’" placement='auto-start'>
               Work Integrated Learning
               </Tooltip>
             </ListItem>

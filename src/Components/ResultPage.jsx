@@ -57,10 +57,12 @@ export default function ResultPage() {
   const [userAnswers, setUserAnswers] = useState(prevData.data);
   let inst = "";
   let unitOfAssessment = ""
+  let respondents = ""
 
   if (prevData?.uniInfo){
     inst = prevData.uniInfo["Institution"];
     unitOfAssessment = prevData.uniInfo["unitOfAssessment"]
+    respondents = prevData.uniInfo["Respondents"]
   }
   const navigateTo = useNavigate();
 
@@ -120,6 +122,9 @@ export default function ResultPage() {
         </Box>
         <Center>
           <Chart providedLabels={providedLabels} labelData={labelData} />
+        </Center>
+        <Center>
+        <Text mt="2rem" fontSize="2rem" fontWeight="bold">Respondents : {respondents}</Text>
         </Center>
         <Center>
         <Text mt="2rem" fontSize="2rem" fontWeight="bold">{unitOfAssessment} : {inst}</Text>

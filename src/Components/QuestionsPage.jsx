@@ -1,4 +1,4 @@
-import { Flex, Button, Center , useToast} from "@chakra-ui/react";
+import { Flex, Button, Center, useToast, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import QuestionMenuBar from "./QuestionMenuBar";
 import Footer from "./Footer";
@@ -27,11 +27,11 @@ export default function QuestionsPage() {
   ];
 
   const navigateTo = useNavigate();
-  const toast = useToast()
+  const toast = useToast();
   const [currentSection, setCurrentSection] = useState(0);
 
   const location2 = useLocation();
-  const uniInfo = location2.state
+  const uniInfo = location2.state;
 
   const [answers, setAnswers] = useState(
     location.state
@@ -111,14 +111,14 @@ export default function QuestionsPage() {
         uniInfo: uniInfo,
         user_answers: JSON.stringify(userAnswers),
       };
-    //   console.log(dataToSave, userAnswers);
+      //   console.log(dataToSave, userAnswers);
 
       // await setDoc(doc(db, "userAnswers", ""), dataToSave);
       // const id = collection(db, "userAnswers").;
       // await setDoc(doc(db, "userAnswers", id), dataToSave);
 
       await addDoc(collection(db, "userAnswers"), dataToSave);
-    //   console.log("from Save Data");
+      //   console.log("from Save Data");
     }
   };
 
@@ -142,7 +142,7 @@ export default function QuestionsPage() {
   };
 
   function navigateToHome() {
-    navigateTo("/")
+    navigateTo("/");
   }
 
   const handleSubmitAnswers = () => {
@@ -225,7 +225,7 @@ export default function QuestionsPage() {
     }
     return false;
   };
-//   console.log(answers);
+  //   console.log(answers);
   return (
     <>
       <Flex direction={{ base: "column", md: "row" }}>
@@ -306,44 +306,47 @@ export default function QuestionsPage() {
             />
           )}
           <Center>
-            <Flex w='40%' justifyContent='space-between'>
-            <Button
-              mt="2rem"
-              mb="5rem"
-              _hover={{ bg: null }}
-              color="white"
-              bg="#01033C"
-              type="submit"
-              minW="200px"
-              onClick={navigateToHome}
-            >
-              Home
-            </Button>
-            <Button
-              mt="2rem"
-              mb="5rem"
-              _hover={{ bg: null }}
-              color="white"
-              bg="#01033C"
-              type="submit"
-              minW="200px"
-              onClick={() => {
-                if (checkRequired(answers, currentSection)) {
+            {currentSection===6?<Text color="#01033C" fontSize={20}>Before submitting, you may edit your replies by navigating to the different sections in the left-hand column</Text>:<></>}
+          </Center>
+          <Center>
+            <Flex w="40%" justifyContent="space-between">
+              <Button
+                mt="2rem"
+                mb="5rem"
+                _hover={{ bg: null }}
+                color="white"
+                bg="#01033C"
+                type="submit"
+                minW="200px"
+                onClick={navigateToHome}
+              >
+                Home
+              </Button>
+              <Button
+                mt="2rem"
+                mb="5rem"
+                _hover={{ bg: null }}
+                color="white"
+                bg="#01033C"
+                type="submit"
+                minW="200px"
+                onClick={() => {
+                  if (checkRequired(answers, currentSection)) {
                     toast({
-                        title: "Please answer all the questions",
-                        status: "error",
-                        duration: 2000,
-                        isClosable: true,
-                      });
-                } else {
-                  currentSection !== 6
-                    ? handleNextClick()
-                    : handleSubmitAnswers();
-                }
-              }}
-            >
-              {currentSection === 6 ? "Submit Answers" : "Next"}
-            </Button>
+                      title: "Please answer all the questions",
+                      status: "error",
+                      duration: 2000,
+                      isClosable: true,
+                    });
+                  } else {
+                    currentSection !== 6
+                      ? handleNextClick()
+                      : handleSubmitAnswers();
+                  }
+                }}
+              >
+                {currentSection === 6 ? "Submit Answers" : "Next"}
+              </Button>
             </Flex>
           </Center>
         </Flex>

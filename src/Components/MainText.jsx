@@ -1,13 +1,27 @@
 import React from "react";
-import { Box, Text, Button } from "@chakra-ui/react";
+import { Box, Text, Button, useToast} from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-
+import { auth} from "../Config/firebase-config";
 export default function MainText(props) {
-  const textWithNewLine = "UEC Compass";
+  const textWithNewLine = "Work-Integrated Learning Survey";
   const textWithNewPara =
-    "The University Enterprise Collaboration (UEC) Compass has been developed developed to assist Higher Education Institutions (HEIs) in assessing the current state of UEC within their institutions and programs, pinpointing areas of strength and identifying areas for improvement.<br/><br/><b> Get started below or sign up to save your progress <b>";
-
-  const navigate = useNavigate();
+    "This survey is a core component of the University–Enterprise Collaboration Compass, which assists Higher Education Institutions (HEIs) in improving their collaboration with external partners. The results of the work-integrated learning survey aim to support educational programs by assessing their current collaborative efforts.<br/><br/><b> Get started below or sign up to save your progress <b>";
+    const navigate = useNavigate();
+    const toast = useToast();
+    const handleStarted = () => {
+      const user = auth?.currentUser;
+      if (user) {
+        navigate("/landing")
+      } else {
+        toast({
+          title: "Please Log In",
+          description: "Log in to continue...",
+          status: "info",
+          duration: 2000,
+          isClosable: true,
+        });
+      }
+    };
   return (
     <Box
       color="#01033c"
@@ -37,10 +51,7 @@ export default function MainText(props) {
       <Button
         mt="26px"
         _hover={{ bg: null }}
-        onClick={() => {
-          navigate("/landing");
-          console.log("clicked");
-        }}
+        onClick={handleStarted}
         color="white"
         bgGradient="linear(to-b, #01033c 66.66%, #232484)"
         w="200px"

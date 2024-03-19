@@ -7,6 +7,7 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import LoginForm from "./LoginForm";
 import RegistrationForm from "./RegistrationForm";
 import Logo from "../assets/secra-logo.png";
+import colabLogo from "../assets/colab-logo-removebg-preview.png";
 import {
   Box,
   Flex,
@@ -110,10 +111,15 @@ function Navbar() {
         align="center"
         px={4}
       >
+      <Flex alignItems="center" w={{base: "50%", md:"30%"}} justify="space-between">
         {/* Left-hand corner logo */}
         <Box>
           <Image src={Logo} alt="Logo" w="100px" />
         </Box>
+        <Box w="10rem" h="2.5rem">
+          <Image h="100%" w="80%" src={colabLogo} alt="Logo" />
+        </Box>
+        </Flex>
 
         {/* Hamburger menu for mobile */}
         <IconButton

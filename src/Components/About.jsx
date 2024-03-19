@@ -7,7 +7,7 @@ export default function About() {
   const navigate = useNavigate();
 
   const textWithNewPara =
-    "SECRA (Strengthening University-Enterprise Collaboration for Resilient Communities in Asia) is an International project funded by the European Commission ERASMUS+ scheme. SECRA demonstrates European added value through its transnational character aimed at a sustainable systemic impact. More specifically, SECRA promotes the sustainable development of the partner countries in the field of higher education according to Article 4 of EU regulation 1288 (2013).";
+    "This survey is a component of the University–Enterprise Collaboration Compass developed by the European Commission-funded project SECRA (Strengthening University-Enterprise Collaboration for Resilient Communities in Asia).";
 
   return (
     <Box id="About" width="100vw" height="100vh" position="relative">

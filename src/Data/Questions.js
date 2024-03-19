@@ -9,7 +9,6 @@ const section_01 = [
       "Other, please specify below",
       "I do not know",
     ],
-    checkBox: true,
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
@@ -26,7 +25,7 @@ const section_01 = [
   {
     questionID: "01.03",
     question:
-      "Which of the following are involved in the planning of work-integrated learning at the UoA?",
+      "Which of the following are involved in planning work-integrated learning at the UoA?",
     answers: [
       "UoA director",
       "Teachers",
@@ -98,7 +97,6 @@ const section_01 = [
     question:
       "Is there additional funding for work-integrated learning at any higher administrative level for which the UoA can apply?",
     answers: ["Yes, regularly", "Yes, occasionally", "No", "I do not know"],
-    checkBox: true,
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
@@ -109,7 +107,6 @@ const section_01 = [
     question:
       "Is work-integrated learning a separate budget line in the UoA's financial records and reports?",
     answers: ["Yes", "No", "I do not know"],
-    checkBox: true,
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
@@ -369,6 +366,7 @@ const section_03 = [
       "In other ways, please elaborate below",
       "N/A",
     ],
+    checkBox: true,
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
@@ -475,6 +473,7 @@ const section_04 = [
       "Yes, as participants/audience",
       "No",
     ],
+    checkBox: true,
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
@@ -776,6 +775,7 @@ const section_06 = [
       "No",
       "I do not know",
     ],
+    checkBox: true, 
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
@@ -792,6 +792,7 @@ const section_06 = [
       "No",
       "I do not know",
     ],
+    checkBox: true,
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
@@ -800,7 +801,7 @@ const section_06 = [
   {
     questionID: "06.09",
     question:
-      "Are there any instructions, training, or guidance available for how to work with work-integrated learning?",
+      "Are any instructions, training, or guidance available for working with work-integrated learning?",
     answers: [
       "Yes, at the university/college level",
       "Yes, at the faculty/school level",
@@ -823,6 +824,7 @@ const section_06 = [
       "Yes, at the department level or more locally",
       "No",
     ],
+    checkBox: true,
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
@@ -854,7 +856,7 @@ const section_07 = [
   {
     questionID: "07.03",
     question:
-      "Does anyone in the UoA staff hold a formal role in any external bodies? (e.g. board position, project manager)?",
+      "Is the UoA formally represented in any external bodies? (e.g. board position, project manager)?",
     answers: ["Yes, in several", "Yes, in a few", "No"],
     dependOn: false,
     dependingQuestion: null,
@@ -872,6 +874,7 @@ const section_07 = [
       "Yes, someone else,Please specify below",
       "No",
     ],
+    checkBox: true,
     dependOn: false,
     dependingQuestion: null,
     dependingAnswer: null,
