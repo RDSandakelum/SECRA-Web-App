@@ -35,6 +35,14 @@ export default function Chart({ providedLabels, labelData }) {
     ],
   };
   const options = {
+    scales: {
+      r: {
+        beginAtZero: true, // Ensure starting at 0
+        min: 0,          // Set minimum scale value
+        max: 18,         // Set maximum scale value
+        stepSize: 2,     // Set step size between ticks
+      },
+    },
     elements: {
       line: {
         borderWidth: 10,
