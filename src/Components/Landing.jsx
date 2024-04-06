@@ -22,7 +22,7 @@ export default function Landing() {
 
   const navigateTo = useNavigate();
   const navigate = () => {
-    if (uniInfo.Institution !== "" && uniInfo.unitOfAssessment !== "" && uniInfo.Respondents !== "") {
+    if (uniInfo.Institution !== "" && uniInfo.unitOfAssessment !== "") {
       navigateTo("/survey", { state: uniInfo });
     } else {
       toast({
@@ -42,9 +42,9 @@ export default function Landing() {
     setUniInfo({ ...uniInfo, Institution: event.target.value });
   };
 
-  const handleChangeRespondents = (event) => {
-    setUniInfo({ ...uniInfo, Respondents: event.target.value });
-  };
+  // const handleChangeRespondents = (event) => {
+  //   setUniInfo({ ...uniInfo, Respondents: event.target.value });
+  // };
 
 
   return (
@@ -70,13 +70,13 @@ export default function Landing() {
             autoComplete="on"
             onChange={handleChangeInst}
           />
-          <Input
+          {/* <Input
             id="respondents"
             placeholder="Respondents"
             type="text"
             autoComplete="on"
             onChange={handleChangeRespondents}
-          />
+          /> */}
         </Stack>
         <Center>
           <Button

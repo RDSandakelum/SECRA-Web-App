@@ -124,7 +124,7 @@ export default function ResultPage() {
           <Chart providedLabels={providedLabels} labelData={labelData} />
         </Center>
         <Center>
-        <Text mt="2rem" fontSize="2rem" fontWeight="bold">Respondents : {respondents}</Text>
+        {/* <Text mt="2rem" fontSize="2rem" fontWeight="bold">Respondents : {respondents}</Text> */}
         </Center>
         <Center>
         <Text mt="2rem" fontSize="2rem" fontWeight="bold">{unitOfAssessment} : {inst}</Text>
