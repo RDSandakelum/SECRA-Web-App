@@ -5,7 +5,7 @@ import { auth} from "../Config/firebase-config";
 export default function MainText(props) {
   const textWithNewLine = "Work-Integrated Learning Survey";
   const textWithNewPara =
-    "This survey is a core component of the University–Enterprise Collaboration Compass, which assists Higher Education Institutions (HEIs) in improving their collaboration with external partners. The results of the work-integrated learning survey aim to support educational programs by assessing their current collaborative efforts.<br/><br/><b> Get started below or sign up to save your progress <b>";
+    "This survey is a core component of the University–Enterprise Collaboration Compass, which assists Higher Education Institutions (HEIs) in improving their collaboration with external partners. The results of the work-integrated learning survey aim to support educational programs by assessing their current collaborative efforts.<br/><br/><b> Get started below<b>";
     const navigate = useNavigate();
     const toast = useToast();
     const handleStarted = () => {
